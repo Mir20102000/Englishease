@@ -1,4 +1,6 @@
-package com.example.englishease.domain
+package com.example.englishease.domain.repository
+
+import com.example.englishease.domain.LessonItem
 
 interface LessonListRepository {
 

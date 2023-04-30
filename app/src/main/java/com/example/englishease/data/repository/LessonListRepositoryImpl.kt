@@ -1,7 +1,7 @@
 package com.example.englishease.data.repository
 
 import com.example.englishease.domain.LessonItem
-import com.example.englishease.domain.LessonListRepository
+import com.example.englishease.domain.repository.LessonListRepository
 
 object LessonListRepositoryImpl: LessonListRepository {
     override fun addLessonItem(lessonItem: LessonItem) {
