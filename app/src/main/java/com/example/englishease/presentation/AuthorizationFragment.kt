@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -12,11 +14,6 @@ import com.example.englishease.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AuthorizationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AuthorizationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -34,8 +31,13 @@ class AuthorizationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_authorization, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_authorization, container, false)
+        val btn: Button = view.findViewById(R.id.button)
+        btn.setOnClickListener{
+            findNavController().navigate(R.id.action_authorizationFragment_to_registrationFragment)
+        }
+        return view
     }
 
     companion object {
