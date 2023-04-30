@@ -1,4 +1,7 @@
-package com.example.englishease.domain
+package com.example.englishease.domain.usecase
+
+import com.example.englishease.domain.LessonItem
+import com.example.englishease.domain.LessonListRepository
 
 class DeleteLessonItemUseCase (private val lessonListRepository: LessonListRepository) {
 
