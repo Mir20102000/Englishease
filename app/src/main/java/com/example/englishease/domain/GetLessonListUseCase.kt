@@ -1,8 +1,8 @@
 package com.example.englishease.domain
 
-class GetLessonListUseCase {
+class GetLessonListUseCase (private val lessonListRepository: LessonListRepository) {
 
     fun getLessonList(): List<LessonItem> {
-        TODO()
+        return lessonListRepository.getLessonList()
     }
 }
