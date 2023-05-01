@@ -33,7 +33,7 @@ class AuthorizationFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_authorization, container, false)
-        val btn: Button = view.findViewById(R.id.button)
+        val btn: Button = view.findViewById(R.id.create_acc_btn)
         btn.setOnClickListener{
             findNavController().navigate(R.id.action_authorizationFragment_to_registrationFragment)
         }
