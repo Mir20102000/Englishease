@@ -39,9 +39,16 @@ class RegistrationFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_registration, container, false)
         val toAuthorizationFragment: Button = view.findViewById(R.id.already_have_an_acc_btn)
+        val registerButton: Button = view.findViewById(R.id.register_btn)
+
         toAuthorizationFragment.setOnClickListener{
             findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
         }
+
+        registerButton.setOnClickListener{
+            findNavController().navigate(R.id.action_registrationFragment_to_mainFragment)
+        }
+
         return view
     }
 

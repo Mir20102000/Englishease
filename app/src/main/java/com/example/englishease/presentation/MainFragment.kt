@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -14,7 +13,12 @@ import com.example.englishease.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class AuthorizationFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [MainFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -32,16 +36,16 @@ class AuthorizationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_authorization, container, false)
-        val createAccountButton: Button = view.findViewById(R.id.create_acc_btn)
-        val authorizeButton: Button = view.findViewById(R.id.authorize_btn)
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val theoryButton: Button = view.findViewById(R.id.theory_btn)
+        val testsButton: Button = view.findViewById(R.id.tests_btn)
 
-        createAccountButton.setOnClickListener{
-            findNavController().navigate(R.id.action_authorizationFragment_to_registrationFragment)
+        theoryButton.setOnClickListener{
+            TODO()
         }
 
-        authorizeButton.setOnClickListener{
-            findNavController().navigate(R.id.action_authorizationFragment_to_mainFragment)
+        testsButton.setOnClickListener{
+            TODO()
         }
 
         return view
@@ -54,12 +58,12 @@ class AuthorizationFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment AuthorizationFragment.
+         * @return A new instance of fragment MainFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            AuthorizationFragment().apply {
+            MainFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
