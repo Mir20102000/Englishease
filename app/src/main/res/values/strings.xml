@@ -14,4 +14,5 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="theory">Theory</string>
     <string name="tests">Tests</string>
+    <string name="here_is_theory_theme">theory_theme</string>
 </resources>
