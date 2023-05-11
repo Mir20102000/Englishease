@@ -33,5 +33,14 @@
         android:id="@+id/mainFragment"
         android:name="com.example.englishease.presentation.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/theoryFragment"
+        android:name="com.example.englishease.presentation.TheoryFragment"
+        android:label="fragment_theory"
+        tools:layout="@layout/fragment_theory" />
 </navigation>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,12 +40,17 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         val theoryButton: Button = view.findViewById(R.id.theory_btn)
         val testsButton: Button = view.findViewById(R.id.tests_btn)
+        val testResults: Button = view.findViewById(R.id.test_results_btn)
 
         theoryButton.setOnClickListener{
-            TODO()
+            findNavController().navigate(R.id.action_mainFragment_to_theoryFragment)
         }
 
         testsButton.setOnClickListener{
+            TODO()
+        }
+
+        testResults.setOnClickListener{
             TODO()
         }
 

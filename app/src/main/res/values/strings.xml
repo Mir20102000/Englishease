@@ -15,4 +15,5 @@
     <string name="theory">Theory</string>
     <string name="tests">Tests</string>
     <string name="here_is_theory_theme">theory_theme</string>
+    <string name="test_results">Test results</string>
 </resources>

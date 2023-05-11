@@ -66,15 +66,17 @@
         app:layout_constraintTop_toBottomOf="@id/email_for_reg_edittext"
         app:layout_constraintVertical_bias="0.227" />
 
-    <Button
+    <TextView
         android:id="@+id/already_have_an_acc_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/already_have_an_account"
+        android:textColor="#697F88"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
