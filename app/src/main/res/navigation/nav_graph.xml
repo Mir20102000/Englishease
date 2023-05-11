@@ -42,5 +42,14 @@
         android:id="@+id/theoryFragment"
         android:name="com.example.englishease.presentation.TheoryFragment"
         android:label="fragment_theory"
-        tools:layout="@layout/fragment_theory" />
+        tools:layout="@layout/fragment_theory" >
+        <action
+            android:id="@+id/action_theoryFragment_to_selectedTheoryFragment"
+            app:destination="@id/selectedTheoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedTheoryFragment"
+        android:name="com.example.englishease.presentation.SelectedTheoryFragment"
+        android:label="fragment_selected_theory"
+        tools:layout="@layout/fragment_selected_theory" />
 </navigation>
