@@ -17,4 +17,14 @@
     <string name="here_is_theory_theme">theory_theme</string>
     <string name="test_results">Test results</string>
     <string name="selected_theory_text">Here is selected theory text: rules, examples, etc.</string>
+    <string name="user">User</string>
+    <string name="results">Results</string>
+    <string name="date">Date</string>
+    <string name="progress">1/10</string>
+    <string name="questDeclaration">question declaration</string>
+    <string name="variant1">variant 1</string>
+    <string name="variant2">variant 2</string>
+    <string name="variant3">variant 3</string>
+    <string name="variant4">variant 4</string>
+    <string name="continueButton">continue</string>
 </resources>

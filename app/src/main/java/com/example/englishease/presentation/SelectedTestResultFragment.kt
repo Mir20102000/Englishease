@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -16,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
+ * Use the [SelectedTestResultFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainFragment : Fragment() {
+class SelectedTestResultFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,25 +34,8 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
-        val theoryButton: Button = view.findViewById(R.id.theory_btn)
-        val testsButton: Button = view.findViewById(R.id.tests_btn)
-        val testResults: Button = view.findViewById(R.id.test_results_btn)
-
-        theoryButton.setOnClickListener{
-            findNavController().navigate(R.id.action_mainFragment_to_theoryFragment)
-        }
-
-        testsButton.setOnClickListener{
-            findNavController().navigate(R.id.action_mainFragment_to_testsFragment)
-        }
-
-        testResults.setOnClickListener{
-            findNavController().navigate(R.id.action_mainFragment_to_testResultsFragment)
-        }
-
-        return view
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_selected_test_result, container, false)
     }
 
     companion object {
@@ -64,12 +45,12 @@ class MainFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
+         * @return A new instance of fragment SelectedTestResultFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
+            SelectedTestResultFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
