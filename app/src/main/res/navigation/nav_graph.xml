@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authorizationFragment">
+
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.englishease.presentation.AuthorizationFragment"
+        android:label="fragment_authorization"
+        tools:layout="@layout/fragment_authorization" >
+        <action
+            android:id="@+id/action_authorizationFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_authorizationFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.englishease.presentation.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.englishease.presentation.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_testsFragment"
+            app:destination="@id/testsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_testResultsFragment"
+            app:destination="@id/testResultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/theoryFragment"
+        android:name="com.example.englishease.presentation.TheoryFragment"
+        android:label="fragment_theory"
+        tools:layout="@layout/fragment_theory" >
+        <action
+            android:id="@+id/action_theoryFragment_to_selectedTheoryFragment"
+            app:destination="@id/selectedTheoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedTheoryFragment"
+        android:name="com.example.englishease.presentation.SelectedTheoryFragment"
+        android:label="fragment_selected_theory"
+        tools:layout="@layout/fragment_selected_theory" />
+    <fragment
+        android:id="@+id/testsFragment"
+        android:name="com.example.englishease.presentation.TestsFragment"
+        android:label="fragment_tests"
+        tools:layout="@layout/fragment_tests" >
+        <action
+            android:id="@+id/action_testsFragment_to_selectedTestFragment"
+            app:destination="@id/selectedTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedTestFragment"
+        android:name="com.example.englishease.presentation.SelectedTestFragment"
+        android:label="fragment_selected_test"
+        tools:layout="@layout/fragment_selected_test" />
+    <fragment
+        android:id="@+id/testResultsFragment"
+        android:name="com.example.englishease.presentation.TestResultsFragment"
+        android:label="fragment_test_results"
+        tools:layout="@layout/fragment_test_results" >
+        <action
+            android:id="@+id/action_testResultsFragment_to_selectedTestResultFragment"
+            app:destination="@id/selectedTestResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedTestResultFragment"
+        android:name="com.example.englishease.presentation.SelectedTestResultFragment"
+        android:label="fragment_selected_test_result"
+        tools:layout="@layout/fragment_selected_test_result" />
+</navigation>
