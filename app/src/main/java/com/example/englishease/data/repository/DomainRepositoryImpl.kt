@@ -5,7 +5,7 @@ import com.example.englishease.domain.models.Question
 import com.example.englishease.domain.models.User
 import com.example.englishease.domain.repository.DomainRepository
 
-object LessonListRepositoryImpl: DomainRepository {
+object DomainRepositoryImpl: DomainRepository {
     override fun authorization(user: User) {
         TODO("Not yet implemented")
     }
