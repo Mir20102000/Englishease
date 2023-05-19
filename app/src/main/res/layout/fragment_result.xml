@@ -3,20 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#493B0B"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.SelectedTheoryFragment">
+    tools:context=".presentation.ResultFragment">
 
     <TextView
-        android:id="@+id/textViewSubjectNameStart"
+        android:id="@+id/textViewSubjectNameResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="@string/theory_name"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,46 +23,59 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/theory_text_text_view"
+        android:id="@+id/textViewResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/tvResultText"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubjectNameResult" />
+
+    <TextView
+        android:id="@+id/textViewResultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:text="@string/theory_text"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:text="@string/testResult"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSubjectNameStart" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 
     <Button
-        android:id="@+id/start_test_btn"
-        android:layout_width="200dp"
+        android:id="@+id/buttonToCatalog"
+        android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="120dp"
-        android:text="@string/start_test"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="#1640D6"
+        android:text="@string/toTestsListText"
         android:textAllCaps="false"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/theory_text_text_view"/>
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonShowResultsStart"
+        android:id="@+id/buttonShowResultsResult"
         android:layout_width="375dp"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#04B100"
         android:text="@string/showAllTestResults"
         android:textAllCaps="false"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonToCatalog"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_test_btn" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

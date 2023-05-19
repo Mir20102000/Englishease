@@ -1,5 +1,10 @@
 package com.example.englishease.domain.models
 
 data class Test (
-    val name: String
+    val testNameTest: String,
+    val declTest: String,
+    val countQue: Int,
+    val resultPoints: Int,
+    val resultText: String,
+    val questions: List<Question>
         )

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.englishease.domain.repository.DomainRepository
 
 class FinishTestUseCase(private val domainRepository: DomainRepository) {
-    fun finishTest(testName: String, point: Int, userName: String): LiveData<String> {
+    suspend fun finishTest(testName: String, point: Int, userName: String): String {
         return domainRepository.finishTest(testName, point, userName)
     }
 }

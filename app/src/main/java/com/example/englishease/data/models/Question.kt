@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
     foreignKeys = [
         ForeignKey(
             entity = Test::class,
-            parentColumns = ["test_name"],
+            parentColumns = ["name"],
             childColumns = ["test_name"],
             onDelete = CASCADE
         )]
@@ -18,7 +18,7 @@ data class Question(
     @PrimaryKey(autoGenerate = true)
     val question_id: Int,
     val test_name: String,
-    val question_number: String,
+    val question_number: Int,
     val question_text: String,
     val answer_one: String,
     val answer_two: String,

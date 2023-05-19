@@ -6,13 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.englishease.data.models.Question
 import com.example.englishease.data.models.Test
-import com.example.englishease.data.models.Theory
+import com.example.englishease.data.models.Result
+import com.example.englishease.data.models.TextResult
 
 @Database(entities = [
-                Theory::class,
                 Test::class,
                 Question::class,
-                Result::class
+                Result::class,
+                TextResult::class
                      ],
             version = 1,
             exportSchema = false)
@@ -37,5 +38,5 @@ abstract class AppDatabase: RoomDatabase() {
         }
     }
 
-    abstract fun AppDao(): AppDao
+    abstract fun appDao(): AppDao
 }

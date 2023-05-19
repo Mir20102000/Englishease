@@ -7,69 +7,64 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
+import com.example.englishease.databinding.FragmentRegistrationBinding
+import com.example.englishease.domain.models.User
+import com.example.englishease.presentation.viewmodel.MainViewModel
+import com.example.englishease.presentation.viewmodel.MainViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegistrationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegistrationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    private val vm: MainViewModel by activityViewModels{ MainViewModelFactory(requireActivity().application) }
+    private lateinit var binding: FragmentRegistrationBinding
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentRegistrationBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-        val view = inflater.inflate(R.layout.fragment_registration, container, false)
-        val toAuthorizationFragment: TextView = view.findViewById(R.id.already_have_an_acc_btn)
-        val registerButton: Button = view.findViewById(R.id.register_btn)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.registerBtn.setOnClickListener{
+            val user = User(
+                binding.emailForRegEdittext.text.toString(),
+                binding.passForRegEdittext.text.toString()
+                )
+            vm.register(user)
+            if (vm.success.value == true) {
+                Snackbar.make(
+                    view,
+                    "Пользователь ${vm.userName.value.toString()} успешно зарегистрирован",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
+            } else {
+                Snackbar.make(
+                    view,
+                    "Регистрация не выполнена, проверьте введённые данные",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
 
-        toAuthorizationFragment.setOnClickListener{
+        binding.alreadyHaveAnAccBtn.setOnClickListener{
             findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
         }
-
-        registerButton.setOnClickListener{
-            findNavController().navigate(R.id.action_registrationFragment_to_mainFragment)
-        }
-
-        return view
+        super.onViewCreated(view, savedInstanceState)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistrationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

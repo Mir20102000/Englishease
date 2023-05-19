@@ -7,29 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
+import com.example.englishease.databinding.FragmentSelectedTheoryBinding
+import com.example.englishease.presentation.viewmodel.MainViewModel
+import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SelectedTheoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SelectedTheoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    private val vm: MainViewModel by activityViewModels{ MainViewModelFactory(requireActivity().application) }
+    lateinit var binding: FragmentSelectedTheoryBinding
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -37,39 +34,28 @@ class SelectedTheoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_selected_theory, container, false)
-
-        val theoryText: TextView = view.findViewById(R.id.selected_theory_text)
-        val toTestBtn: Button = view.findViewById(R.id.to_selected_test_btn)
-
-        theoryText.setOnClickListener{
-            TODO()
-        }
-
-        toTestBtn.setOnClickListener{
-            TODO()
-        }
-
-        return view
+        binding = FragmentSelectedTheoryBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SelectedTheoryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SelectedTheoryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        vm.testName.observe(viewLifecycleOwner) {
+            binding.textViewSubjectNameStart.text = it
+            vm.getDeclTest(it)
+            vm.getQuestionCount(it)
+        }
+        vm.declaration.observe(viewLifecycleOwner) {
+            binding.theoryTextTextView.text = it
+        }
+        binding.buttonShowResultsStart.setOnClickListener {
+            findNavController().navigate(R.id.action_selectedTheoryFragment_to_selectedTestResultFragment)
+        }
+        binding.startTestBtn.setOnClickListener {
+            vm.setQuestionNumber(1)
+            vm.setPoints(0)
+            vm.testName.value?.let { it1 -> vm.getQuestion(it1, 1) }
+            findNavController().navigate(R.id.action_selectedTheoryFragment_to_selectedTestFragment)
+        }
+        super.onViewCreated(view, savedInstanceState)
     }
 }

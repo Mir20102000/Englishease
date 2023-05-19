@@ -13,7 +13,7 @@
         android:layout_marginTop="60dp"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:text="@string/here_is_theory_theme"
+        android:text="@string/test_name"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -48,8 +48,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewProgress" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <RadioButton
+        android:id="@+id/radioButton_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -60,8 +60,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuestDeclaration" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
+    <RadioButton
+        android:id="@+id/radioButton_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/variant2"
@@ -70,8 +70,8 @@
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toTopOf="@+id/checkBox" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
+    <RadioButton
+        android:id="@+id/radioButton_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -81,8 +81,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
-    <CheckBox
-        android:id="@+id/checkBox4"
+    <RadioButton
+        android:id="@+id/radioButton_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/variant4"

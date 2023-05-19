@@ -5,20 +5,20 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "result",
+@Entity(tableName = "text_result",
     foreignKeys = [
         ForeignKey(
             entity = Test::class,
             parentColumns = ["name"],
-            childColumns = ["test_name"],
+            childColumns = ["testName"],
             onDelete = CASCADE
         )]
 )
-data class Result(
+data class TextResult(
     @PrimaryKey(autoGenerate = true)
-    val result_id: Int,
-    val test_name: String,
-    val user: String,
-    val points: Int,
-    val date: String
+    val id: Int,
+    val testName: String,
+    val beginPoint: Int,
+    val endPoint: Int,
+    val text: String
 )
