@@ -48,46 +48,4 @@ interface AppDao {
     @Query("SELECT text FROM text_result WHERE testName == :testName AND beginPoint <= :points AND endPoint >= :points LIMIT 1")
     suspend fun getResult(testName: String, points: Int): String
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @Query("SELECT theory_name FROM theory")
-//    suspend fun getTheoryList(): List<String>
-//
-//
-//    @Query("SELECT test_name FROM test")
-//    suspend fun getTestsList(): List<String>
-//
-//
-//    @Query("SELECT result_name FROM result")
-//    suspend fun getTestsResultsList(): List<String>
-//
-//
-//
-//    @Query("SELECT theory_name, theory_text FROM theory WHERE theory_name= :theoryName LIMIT 1")
-//    suspend fun getSelectedTheory(theoryName: String): Theory
-//
-//
-//    @Query("SELECT * FROM question WHERE test_name == :test_name AND question_number == :questionNumber LIMIT 1")
-//    suspend fun getQuestionInfo(test_name: String, questionNumber: Int): Question
-//
-//
-//    @Query("SELECT user, points, date FROM result where result.test_name == :testName LIMIT 1")
-//    suspend fun getTestResult(testName: String): String
-//
-//
-//    @Query("SELECT * FROM result WHERE test_name == :testName")
-//    suspend fun getSelectedTestResults(testName: String): List<String>
-
 }

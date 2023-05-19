@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e9c46a"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ResultFragment">
 
@@ -14,7 +15,7 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="@string/theory_name"
-        android:textColor="#000000"
+        android:textColor="#2a9d8f"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/tvResultText"
-        android:textColor="#000000"
+        android:textColor="#264653"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="@string/testResult"
-        android:textColor="#000000"
+        android:textColor="#264653"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -52,10 +53,10 @@
 
     <Button
         android:id="@+id/buttonToCatalog"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
-        android:backgroundTint="#1640D6"
+        android:backgroundTint="#e76f51"
         android:text="@string/toTestsListText"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -66,10 +67,10 @@
 
     <Button
         android:id="@+id/buttonShowResultsResult"
-        android:layout_width="375dp"
-        android:layout_height="60dp"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#04B100"
+        android:backgroundTint="#e76f51"
         android:text="@string/showAllTestResults"
         android:textAllCaps="false"
         android:textSize="18sp"

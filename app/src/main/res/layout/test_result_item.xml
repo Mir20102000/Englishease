@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:gravity="start"
         android:text="@string/user"
-        android:textColor="#000000" />
+        android:textColor="#264653" />
 
     <TextView
         android:id="@+id/res_results_text_view"
@@ -21,7 +21,7 @@
         android:layout_weight="1"
         android:gravity="end"
         android:text="@string/result_text"
-        android:textColor="#000000"/>
+        android:textColor="#264653"/>
 
     <TextView
         android:id="@+id/date_result_text_view"
@@ -30,6 +30,6 @@
         android:layout_weight="1"
         android:gravity="end"
         android:text="@string/date"
-        android:textColor="#000000"/>
+        android:textColor="#264653"/>
 
 </LinearLayout>

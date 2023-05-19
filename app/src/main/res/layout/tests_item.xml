@@ -8,8 +8,8 @@
         android:id="@+id/test_item_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="#000000"
+        android:textColor="#264653"
+        android:textSize="18sp"
         android:text="@string/test_name" />
 
 </LinearLayout>

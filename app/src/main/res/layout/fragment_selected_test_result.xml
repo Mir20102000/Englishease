@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e9c46a"
     tools:context=".presentation.SelectedTestResultFragment">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="@string/test_results"
-        android:textColor="#000000"
+        android:textColor="#2a9d8f"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,28 +38,31 @@
             android:id="@+id/textViewUserResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#264653"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:gravity="start"
-            android:text="@string/user"
-            android:textColor="#000000" />
+            android:text="@string/user" />
 
         <TextView
             android:id="@+id/textViewResResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#264653"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/results"
-            android:textColor="#000000" />
+            android:text="@string/results" />
 
         <TextView
             android:id="@+id/textViewDateResultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#264653"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:gravity="end"
-            android:text="@string/date"
-            android:textColor="#000000" />
+            android:text="@string/date" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

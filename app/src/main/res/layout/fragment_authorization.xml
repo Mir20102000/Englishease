@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#493B0B"
+    android:background="#e9c46a"
     tools:context=".presentation.AuthorizationFragment">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="34sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="#2a9d8f"
         android:text="Authorization"
         android:layout_marginTop="50dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,6 +22,7 @@
 
     <EditText
         android:id="@+id/login_edittext"
+        android:inputType="textEmailAddress"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginTop="200dp"
@@ -33,6 +34,7 @@
 
     <EditText
         android:id="@+id/password_edittext"
+        android:inputType="textPassword"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
@@ -50,6 +52,7 @@
         android:layout_margin="50dp"
         android:text="@string/enter"
         android:textSize="17sp"
+        android:backgroundTint="#e76f51"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_edittext" />
@@ -60,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/create_account"
-        android:textColor="#697F88"
+        android:textColor="#2a9d8f"
         android:textSize="20sp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

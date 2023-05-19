@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">This is authorization fragment</string>
     <string name="auth_to_register_btn">Already have an account?</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="login">Login</string>
+    <string name="login">Email</string>
     <string name="password">Password</string>
     <string name="enter">Enter</string>
     <string name="create_account">Create account</string>
@@ -39,7 +39,7 @@
     <string name="showAllTestResults">Show all test results</string>
     <string name="tvResultText">Результат</string>
     <string name="testResult">Результат теста</string>
-    <string name="toTestsListText">Перейти к каталогу тестов</string>
+    <string name="toTestsListText">Back to theory list</string>
     <string name="user_header">Users</string>
     <string name="results_header">Results</string>
     <string name="date_header">Date</string>

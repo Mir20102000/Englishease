@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#493B0B"
+    android:background="#e9c46a"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.SelectedTheoryFragment">
 
@@ -16,7 +16,7 @@
         android:paddingEnd="30dp"
         android:text="@string/theory_name"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="#2a9d8f"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +33,8 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="@string/theory_text"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textColor="#264653"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,25 +42,26 @@
 
     <Button
         android:id="@+id/start_test_btn"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:text="@string/start_test"
+        android:backgroundTint="#e76f51"
         android:textAllCaps="false"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/theory_text_text_view"/>
 
     <Button
         android:id="@+id/buttonShowResultsStart"
-        android:layout_width="375dp"
-        android:layout_height="60dp"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#04B100"
+        android:backgroundTint="#e76f51"
         android:text="@string/showAllTestResults"
         android:textAllCaps="false"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_test_btn" />
