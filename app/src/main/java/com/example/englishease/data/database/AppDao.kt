@@ -19,7 +19,12 @@ interface AppDao {
     suspend fun insertQuestion(question: Question)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTextResult(textResult: TextResult)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertResult(result: Result)
+
+
 
 
     @Query("SELECT theory_text FROM test WHERE test.name == :testName LIMIT 1")

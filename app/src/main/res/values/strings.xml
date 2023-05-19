@@ -40,5 +40,8 @@
     <string name="tvResultText">Результат</string>
     <string name="testResult">Результат теста</string>
     <string name="toTestsListText">Перейти к каталогу тестов</string>
+    <string name="user_header">Users</string>
+    <string name="results_header">Results</string>
+    <string name="date_header">Date</string>
 
 </resources>
