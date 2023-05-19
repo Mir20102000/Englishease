@@ -60,12 +60,8 @@ class MainViewModel (
     private val _results = MutableLiveData<List<com.example.englishease.domain.models.Result>>()
     var results: LiveData<List<com.example.englishease.domain.models.Result>> = _results
 
-    fun authorize(user: User) {
-        //_success = loginUseCase.login(user)
-        _success.value = true
-        if (_success.value == true) {
-            _userName.value = user.name.substringBefore('@')
-        }
+    fun authorize(user: String) {
+            _userName.value = user.substringBefore('@')
     }
 
     fun register(user: User) {

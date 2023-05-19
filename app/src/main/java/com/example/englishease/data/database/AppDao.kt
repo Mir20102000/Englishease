@@ -45,7 +45,7 @@ interface AppDao {
     @Query("SELECT result_id FROM result WHERE result.test_name == :testName ORDER BY result_id DESC LIMIT 1")
     suspend fun getResultId(testName: String): Int
 
-    @Query("SELECT text FROM text_result WHERE testName == :testName AND beginPoint <= :points AND endPoint > :points LIMIT 1")
+    @Query("SELECT text FROM text_result WHERE testName == :testName AND beginPoint <= :points AND endPoint >= :points LIMIT 1")
     suspend fun getResult(testName: String, points: Int): String
 
 

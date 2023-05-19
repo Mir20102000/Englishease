@@ -7,35 +7,48 @@
     android:background="#493B0B"
     tools:context=".presentation.RegistrationFragment">
 
-    <EditText
-        android:id="@+id/login_for_reg_edittext"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="192dp"
-        android:background="@color/white"
-        android:hint="@string/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
+    <TextView
+        android:id="@+id/registrationTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Registration"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/email_for_reg_edittext"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="180dp"
         android:background="@color/white"
         android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/repeat_pass_edittext" />
+        app:layout_constraintTop_toBottomOf="@id/registrationTxt" />
+
+    <EditText
+        android:id="@+id/pass_for_reg_edittext"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_for_reg_edittext" />
 
     <EditText
         android:id="@+id/repeat_pass_edittext"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:background="@color/white"
         android:hint="@string/repeat_password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,28 +56,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass_for_reg_edittext" />
 
-    <EditText
-        android:id="@+id/pass_for_reg_edittext"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
-        android:hint="@string/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_for_reg_edittext" />
-
     <Button
         android:id="@+id/register_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/register"
+        android:layout_margin="15dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/already_have_an_acc_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_for_reg_edittext"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_pass_edittext"
+        app:layout_constraintVertical_bias="0.476" />
 
     <TextView
         android:id="@+id/already_have_an_acc_btn"
@@ -76,6 +79,15 @@
         android:textSize="20sp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/register_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/register_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

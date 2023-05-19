@@ -15,16 +15,13 @@ import com.example.englishease.domain.models.User
 import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class RegistrationFragment : Fragment() {
-    private val vm: MainViewModel by activityViewModels{ MainViewModelFactory(requireActivity().application) }
+    private val vm: MainViewModel by activityViewModels { MainViewModelFactory(requireActivity().application) }
     private lateinit var binding: FragmentRegistrationBinding
-    private var param1: String? = null
-    private var param2: String? = null
+    private var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,32 +36,63 @@ class RegistrationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.registerBtn.setOnClickListener{
-            val user = User(
-                binding.emailForRegEdittext.text.toString(),
-                binding.passForRegEdittext.text.toString()
-                )
-            vm.register(user)
-            if (vm.success.value == true) {
+        binding.registerBtn.setOnClickListener {
+            binding.registerProgressBar.visibility = View.VISIBLE
+            val email = binding.emailForRegEdittext.text.toString()
+            val password = binding.passForRegEdittext.text.toString()
+            val repeatPassword = binding.repeatPassEdittext.text.toString()
+            if (email.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
                 Snackbar.make(
                     view,
-                    "Пользователь ${vm.userName.value.toString()} успешно зарегистрирован",
+                    "Fill out all input fields",
                     Snackbar.LENGTH_SHORT
                 ).show()
-                findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
-            } else {
-                Snackbar.make(
-                    view,
-                    "Регистрация не выполнена, проверьте введённые данные",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
             }
+            if (password.length < 6) {
+                Snackbar.make(
+                    view,
+                    "Password must contain at least 6 characters",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+            if (repeatPassword != password) {
+                Snackbar.make(
+                    view,
+                    "Passwords do not match, check the data you entered",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    binding.registerProgressBar.visibility = View.GONE
+                    if (task.isSuccessful) {
+                        vm.authorize(email)
+                        Snackbar.make(
+                            view,
+                            "User ${vm.userName.value.toString()} successfully signed up",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Registration failed, check the data entered",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
         }
+        super.onViewCreated(view, savedInstanceState)
 
-        binding.alreadyHaveAnAccBtn.setOnClickListener{
+        binding.alreadyHaveAnAccBtn.setOnClickListener {
             findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
         }
         super.onViewCreated(view, savedInstanceState)
     }
-
 }

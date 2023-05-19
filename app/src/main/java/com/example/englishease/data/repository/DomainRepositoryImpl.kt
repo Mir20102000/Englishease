@@ -532,8 +532,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     1,
                     "Nouns",
-                    0,
-                    20,
+                    -1,
+                    21,
                     "You should try it one more time."
                 )
             )
@@ -541,8 +541,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     2,
                     "Nouns",
-                    21,
-                    60,
+                    22,
+                    61,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
@@ -551,8 +551,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     3,
                     "Nouns",
-                    61,
-                    100,
+                    62,
+                    101,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
@@ -562,8 +562,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     4,
                     "The present simple tense",
-                    0,
-                    20,
+                    -1,
+                    21,
                     "You should try it one more time."
                 )
             )
@@ -571,8 +571,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     5,
                     "The present simple tense",
-                    21,
-                    60,
+                    22,
+                    61,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
@@ -581,8 +581,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     6,
                     "The present simple tense",
-                    61,
-                    100,
+                    62,
+                    101,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
@@ -592,8 +592,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     7,
                     "The past simple tense",
-                    0,
-                    20,
+                    -1,
+                    21,
                     "You should try it one more time."
                 )
             )
@@ -601,8 +601,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     8,
                     "The past simple tense",
-                    21,
-                    60,
+                    22,
+                    61,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
@@ -611,8 +611,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     9,
                     "The past simple tense",
-                    61,
-                    100,
+                    62,
+                    101,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
@@ -623,8 +623,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     10,
                     "The future simple tense",
-                    0,
-                    20,
+                    -1,
+                    21,
                     "You should try it one more time."
                 )
             )
@@ -632,8 +632,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     11,
                     "The future simple tense",
-                    21,
-                    60,
+                    22,
+                    61,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
@@ -642,8 +642,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     12,
                     "The future simple tense",
-                    61,
-                    100,
+                    62,
+                    101,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
@@ -653,8 +653,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     13,
                     "Modal verbs",
-                    0,
-                    20,
+                    -1,
+                    21,
                     "You should try it one more time."
                 )
             )
@@ -662,8 +662,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     14,
                     "Modal verbs",
-                    21,
-                    60,
+                    22,
+                    61,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
@@ -672,8 +672,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 TextResult(
                     15,
                     "Modal verbs",
-                    61,
-                    100,
+                    62,
+                    101,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
