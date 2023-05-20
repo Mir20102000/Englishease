@@ -17,8 +17,6 @@ import com.example.englishease.domain.usecases.ShowTheoryListUseCase
 import kotlinx.coroutines.launch
 
 class MainViewModel (
-    private val authorizationUseCase: AuthorizationUseCase,
-    private val registrationUseCase: RegistrationUseCase,
     private val showTheoryListUseCase: ShowTheoryListUseCase,
     private val beginTestUseCase: BeginTestUseCase,
     private val continueTestUseCase: ContinueTestUseCase,
