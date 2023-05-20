@@ -1,29 +1,25 @@
 package com.example.englishease.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.englishease.domain.models.Question
 import com.example.englishease.domain.models.User
+import com.example.englishease.domain.models.Conclusion
 
 interface DomainRepository {
 
-    fun authorization(user: User)
+    fun authorization(user: User): Boolean
+    fun registration(user: User): Boolean
 
-    fun registration(user: User)
 
-    fun showTheoryList(): LiveData<List<String>>
+    suspend fun beginTest(testName: String): String
+    suspend fun continueTest(testName: String, questionNumber: Int): Question
+    suspend fun finishTest(testName: String, points: Int, userName: String): String
 
-    fun showTestsList(): LiveData<List<String>>
 
-    fun showTestResultsList(): LiveData<List<String>>
+    suspend fun showTheoryList(): List<String>
+    suspend fun showResults(testName: String): List<Conclusion>
+    suspend fun getCountQuestion(testName: String): Int
 
-    fun beginTest(testName: String): LiveData<String>
 
-    fun continueTest(testName: String, queNum: Int): LiveData<Question>
 
-    fun finishTest(testName: String, point: Int, userName: String): LiveData<String>
-
-    fun showSelectedTestResults(testName: String): LiveData<String>
-
-    fun showSelectedTheory(theoryName: String): LiveData<String>
 
 }

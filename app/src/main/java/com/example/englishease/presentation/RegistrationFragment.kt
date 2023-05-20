@@ -7,69 +7,92 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
+import com.example.englishease.databinding.FragmentRegistrationBinding
+import com.example.englishease.domain.models.User
+import com.example.englishease.presentation.viewmodel.MainViewModel
+import com.example.englishease.presentation.viewmodel.MainViewModelFactory
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegistrationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegistrationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val vm: MainViewModel by activityViewModels { MainViewModelFactory(requireActivity().application) }
+    private lateinit var binding: FragmentRegistrationBinding
+    private var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_registration, container, false)
-        val toAuthorizationFragment: TextView = view.findViewById(R.id.already_have_an_acc_btn)
-        val registerButton: Button = view.findViewById(R.id.register_btn)
-
-        toAuthorizationFragment.setOnClickListener{
-            findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
-        }
-
-        registerButton.setOnClickListener{
-            findNavController().navigate(R.id.action_registrationFragment_to_mainFragment)
-        }
-
-        return view
+        binding = FragmentRegistrationBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistrationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.registerBtn.setOnClickListener {
+            binding.registerProgressBar.visibility = View.VISIBLE
+            val email = binding.emailForRegEdittext.text.toString()
+            val password = binding.passForRegEdittext.text.toString()
+            val repeatPassword = binding.repeatPassEdittext.text.toString()
+            if (email.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
+                Snackbar.make(
+                    view,
+                    "Fill out all input fields",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
             }
+            if (password.length < 6) {
+                Snackbar.make(
+                    view,
+                    "Password must contain at least 6 characters",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+            if (repeatPassword != password) {
+                Snackbar.make(
+                    view,
+                    "Passwords do not match, check the data you entered",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.registerProgressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    binding.registerProgressBar.visibility = View.GONE
+                    if (task.isSuccessful) {
+                        vm.authorize(email)
+                        Snackbar.make(
+                            view,
+                            "User ${vm.userName.value.toString()} successfully signed up",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Registration failed, check the data entered",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+        }
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.alreadyHaveAnAccBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
+        }
+        super.onViewCreated(view, savedInstanceState)
     }
 }

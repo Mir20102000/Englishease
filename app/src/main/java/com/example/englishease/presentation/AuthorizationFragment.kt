@@ -7,64 +7,86 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.englishease.databinding.FragmentAuthorizationBinding
+import com.example.englishease.domain.models.User
+import com.example.englishease.presentation.viewmodel.MainViewModel
+import com.example.englishease.presentation.viewmodel.MainViewModelFactory
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 class AuthorizationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private val vm: MainViewModel by activityViewModels{ MainViewModelFactory(requireActivity().application) }
+    private lateinit var binding: FragmentAuthorizationBinding
+    private var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_authorization, container, false)
-        val createAccountButton: TextView = view.findViewById(R.id.create_acc_btn)
-        val authorizeButton: Button = view.findViewById(R.id.authorize_btn)
-
-        createAccountButton.setOnClickListener{
-            findNavController().navigate(R.id.action_authorizationFragment_to_registrationFragment)
-        }
-
-        authorizeButton.setOnClickListener{
-            findNavController().navigate(R.id.action_authorizationFragment_to_mainFragment)
-        }
-
-        return view
+        binding = FragmentAuthorizationBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AuthorizationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AuthorizationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.authorizeBtn.setOnClickListener {
+            binding.authProgressBar.visibility = View.VISIBLE
+            val email = binding.loginEdittext.text.toString()
+            val password = binding.passwordEdittext.text.toString()
+            if (email.isEmpty() || password.isEmpty()) {
+                Snackbar.make(
+                    view,
+                    "All fields must be filled",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.authProgressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    binding.authProgressBar.visibility = View.GONE
+                    if (task.isSuccessful) {
+                        vm.authorize(email)
+                        Snackbar.make(
+                            view,
+                            "Login successful",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        findNavController().navigate(R.id.action_authorizationFragment_to_theoryFragment)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Login failed, check the data entered",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+            val callback = object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    Snackbar.make(
+                        view,
+                        "Close the application by closing the tab",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
+            activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+            super.onViewCreated(view, savedInstanceState)
+        }
+
+        binding.createAccBtn.setOnClickListener{
+            findNavController().navigate(R.id.action_authorizationFragment_to_registrationFragment)
+        }
+        super.onViewCreated(view, savedInstanceState)
     }
 }

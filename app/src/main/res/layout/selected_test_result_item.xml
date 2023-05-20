@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="start"
-        android:text="@string/user"
+        android:text="@string/user_header"
         android:textColor="#000000" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="end"
-        android:text="@string/results"
+        android:text="@string/results_header"
         android:textColor="#000000" />
 
     <TextView
@@ -29,6 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="end"
-        android:text="@string/date"
+        android:text="@string/date_header"
         android:textColor="#000000" />
 </LinearLayout>

@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">This is authorization fragment</string>
     <string name="auth_to_register_btn">Already have an account?</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="login">Login</string>
+    <string name="login">Email</string>
     <string name="password">Password</string>
     <string name="enter">Enter</string>
     <string name="create_account">Create account</string>
@@ -14,7 +14,7 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="theory">Theory</string>
     <string name="tests">Tests</string>
-    <string name="here_is_theory_theme">theory_theme</string>
+    <string name="test_name">theory_theme</string>
     <string name="test_results">Test results</string>
     <string name="selected_theory_text">Here is selected theory text: rules, examples, etc.</string>
     <string name="user">User</string>
@@ -27,4 +27,21 @@
     <string name="variant3">variant 3</string>
     <string name="variant4">variant 4</string>
     <string name="continueButton">continue</string>
+    <string name="result_text">Results</string>
+    <string name="theory_name">Theory name</string>
+    <string name="hello">Choose lesson you want to learn</string>
+    <string name="theory_text">This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
+    This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
+    This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
+    This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
+    This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.</string>
+    <string name="start_test">Start test</string>
+    <string name="showAllTestResults">Show all test results</string>
+    <string name="tvResultText">Результат</string>
+    <string name="testResult">Результат теста</string>
+    <string name="toTestsListText">Back to theory list</string>
+    <string name="user_header">Users</string>
+    <string name="results_header">Results</string>
+    <string name="date_header">Date</string>
+
 </resources>
