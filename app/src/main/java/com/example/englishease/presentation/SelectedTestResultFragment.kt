@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentSelectedTestResultBinding
@@ -36,7 +37,7 @@ class SelectedTestResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.testName.observe(viewLifecycleOwner) {
-            val test = "Все результаты теста \"$it\""
+            val test = "All results of \"$it\""
             binding.textViewAllResults.text = test
             vm.getResults(it)
         }
@@ -44,6 +45,10 @@ class SelectedTestResultFragment : Fragment() {
             val adapter = ResultAdapter(it)
             binding.recyclerViewResults.layoutManager = LinearLayoutManager(this.context)
             binding.recyclerViewResults.adapter = adapter
+        }
+
+        binding.buttonToCatalog.setOnClickListener{
+            findNavController().navigate(R.id.action_selectedTestResultFragment_to_theoryFragment)
         }
 
         super.onViewCreated(view, savedInstanceState)

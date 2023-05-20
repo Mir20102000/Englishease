@@ -43,14 +43,18 @@ class ResultFragment : Fragment() {
             binding.textViewSubjectNameResult.text = it
         }
         vm.pointsResult.observe(viewLifecycleOwner) {
-            val result = "Результат теста: ${it.toInt()}"
+            val result = "Test result: ${it.toInt()}"
             binding.textViewResult.text = result
             vm.testName.value?.let { it1 -> vm.userName.value?.let { it2 ->
                 vm.getResult(it1, it.toInt(), it2)
-                Log.d("RRR", "Имя = $it2, тест = $it1, баллы = $it")
-                Log.d("RRR", "${vm.textResult.value}")
+//                Log.d("RRR", "Имя = $it2, тест = $it1, баллы = $it")
+//                Log.d("RRR", "${vm.textResult.value}")
             } }
         }
+
+
+
+
         vm.textResult.observe(viewLifecycleOwner) {
             binding.textViewResultText.text = vm.textResult.value
         }

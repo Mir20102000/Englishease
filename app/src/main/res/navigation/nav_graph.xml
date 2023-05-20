@@ -60,7 +60,11 @@
         android:id="@+id/selectedTestResultFragment"
         android:name="com.example.englishease.presentation.SelectedTestResultFragment"
         android:label="fragment_selected_test_result"
-        tools:layout="@layout/fragment_selected_test_result" />
+        tools:layout="@layout/fragment_selected_test_result" >
+        <action
+            android:id="@+id/action_selectedTestResultFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.englishease.presentation.ResultFragment"

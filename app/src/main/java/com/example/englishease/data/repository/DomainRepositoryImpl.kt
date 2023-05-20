@@ -94,35 +94,120 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             db.appDao().insertTest(
                 Test(
                     "Nouns",
-                    "Nouns are word used to name general items rather than specific ones. Proper nouns are the names of particular person, place, or thing. A noun that used to denote one thing, one person, one animal, one place and so on called a singular noun.",
+                    "Nouns are words that give a name to people, places or things, " +
+                            "though they can also refer to ideas and other abstract objects. \n" +
+                            "Nouns are words that give a name to people, places or things, " +
+                            "though they can also refer to ideas and other abstract objects. " +
+                    "Nouns can function as a subject, object, complement, appositive, or object " +
+                            "of a preposition. One can not imagine a sentence without a noun. " +
+                            "It will make no sense. Let us consider an example:\n" +
+                            "\n" +
+                            "John offered Jane a beautiful bunch of flowers." +
+                    "This sentence contains four nouns having different critical grammatical functions:\n" +
+                            "\n" +
+                            "\"John\" is the subject of the sentence.\n" +
+                            "\"Jane\" is the direct object of the verb \"offered\".\n" +
+                            "\"Bunch\" is the indirect object of the verb \" offered\".\n" +
+                            "\"Flowers\" is the object of the preposition \"of\".",
                     5
                 )
             )
             db.appDao().insertTest(
                 Test(
                     "The present simple tense",
-                    "We use it when actions happen regularly, sometimes or never; state the facts; we tell the events of a story that is happening now.  Tense form: S+do/does/don't/doesn't+V. Example: He usually sits there.",
+                    "The simple present tense in English is used to describe an action that is regular, true or normal." +
+                            "We use the present tense:\n" +
+                            "1. For repeated or regular actions in the present time period.\n" +
+                            "I take the train to the office.\n" +
+                            "The train to Berlin leaves every hour.\n" +
+                            "John sleeps eight hours every night during the week.\n" +
+                            "2. For facts.\n" +
+                            "The President of The USA lives in The White House.\n" +
+                            "A dog has four legs.\n" +
+                            "We come from Switzerland.\n" +
+                            "3. For habits.\n" +
+                            "I get up early every day.\n" +
+                            "Carol brushes her teeth twice a day.\n" +
+                            "They travel to their country house every weekend.\n" +
+                            "4. For things that are always / generally true.\n" +
+                            "It rains a lot in winter.\n" +
+                            "The Queen of England lives in Buckingham Palace.\n" +
+                            "They speak English at work.",
                     5
                 )
             )
             db.appDao().insertTest(
                 Test(
                     "The past simple tense",
-                    "We use it when actions happen in a certain moments in the past. Example: I went to university in 2015. The simple past tense is usually made by  adding  -ed to the verb. The rule used to form simple past tense verbs is similar to the rule of adding -s to form Plurals.",
+                    "English uses verbs in the simple past tense to refer to actions" +
+                            "situations, or events that are finished and that happened before" +
+                            "now. There are three ways to form simple past tense in English." +
+                            "\n" +
+                            "These three different ways depend on the verb:" +
+                            "the verb be\n" +
+                            "(special forms)\n" +
+                            "regular verbs\n" +
+                            "(add - d, - ed, or change y to i and add - ed)\n" +
+                            "regular verbs\n" +
+                            "(special forms)\n" +
+                            "There is only one form of each verb in the past simple tense.*\n" +
+                            "* The exception is TO BE which has two forms: was and were. We will see more about this later.\n" +
+                            "\n" +
+                            "The past tense of LIVE is LIVED.\n" +
+                            "LIVED is used for all subjects including HE, SHE and IT.\n" +
+                            "\n" +
+                            "I lived …\n" +
+                            "You lived …\n" +
+                            "We lived …\n" +
+                            "They lived …\n" +
+                            "He lived …\n" +
+                            "She lived …\n" +
+                            "It lived …",
                     5
                 )
             )
             db.appDao().insertTest(
                 Test(
                     "The future simple tense",
-                    "We use it when actions that not happened yet but will happen in the future. We use will/shall+Verb to form the future verbs form. Example: I will miss you when you leave. Sometimes, we talk about a schedule that do not change in the future, however, we use simple tense to form the verbs.",
+                    "Simple future tense is used when talking about things that will happen " +
+                            "at a time later rather than the present time. Sometimes you will hear people " +
+                            "call future simple tense will, this is because most of the time you will use " +
+                            "the future simple tense with the modal auxiliary will." +
+                            "The simple future is formed as follows:\n" +
+                            "\n" +
+                            "will / 'll + verb\n" +
+                            "will = 'll" +
+                            "Examples:\n" +
+                            "\n" +
+                            "I think I'll buy a new computer.\n" +
+                            "I will open the door. Someone is ringing the bell." +
+                            "\n" +
+                    "Will and be going to, can be used, when talking about predictions and guesses.\n" +
+                            "\n" +
+                            "My new car will be here next week.\n" +
+                            "\n" +
+                            "My new car is going to be here next week.",
                     5
                 )
             )
             db.appDao().insertTest(
                 Test(
                     "Modal verbs",
-                    "Modals are different from normal verbs. They don't use an -s for the third person singular. They make questions by inversion. They are followed directly by a verb. Example: She can speak four languages.",
+                    "Modals (also called modal verbs, modal auxiliary verbs, modal " +
+                            "auxiliaries) are special verbs that behave irregularly in English. " +
+                            "They are different from normal verbs like \"work, play, visit...\" " +
+                            "They give additional information about the function of the main verb " +
+                            "that follows it. They have a great variety of communicative functions.\n" +
+                            "Here are some characteristics of modal verbs:\n" +
+                            "They never change their form. You can't add \"s\", \"ed\", \"ing\"...\n" +
+                            "They are always followed by an infinitive without \"to\" (e.i. the bare infinitive.)\n" +
+                            "They are used to indicate modality and allow speakers to express certainty, possibility, " +
+                            "willingness, obligation, necessity, ability" +
+                    "Here is a list of modal verbs:\n" +
+                            "can, could, may, might, will, would, shall, should, must\n" +
+                            "The verbs or expressions dare, ought to, had better, and need not " +
+                            "behave like modal auxiliaries to a large extent and may be added to " +
+                            "the above list",
                     5
                 )
             )
