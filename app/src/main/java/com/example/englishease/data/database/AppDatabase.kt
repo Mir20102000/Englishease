@@ -7,16 +7,17 @@ import androidx.room.RoomDatabase
 import com.example.englishease.data.models.Question
 import com.example.englishease.data.models.Test
 import com.example.englishease.data.models.Result
-import com.example.englishease.data.models.TextResult
+import com.example.englishease.data.models.Conclusion
 
 @Database(entities = [
                 Test::class,
                 Question::class,
                 Result::class,
-                TextResult::class
+                Conclusion::class
                      ],
-            version = 1,
+            version = 2,
             exportSchema = false)
+
 abstract class AppDatabase: RoomDatabase() {
 
     companion object {
@@ -31,7 +32,8 @@ abstract class AppDatabase: RoomDatabase() {
                     context,
                     AppDatabase::class.java,
                     DB_NAME
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 db = instance
                 return instance
             }

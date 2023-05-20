@@ -10,15 +10,15 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = Test::class,
             parentColumns = ["name"],
-            childColumns = ["testName"],
+            childColumns = ["test_name"],
             onDelete = CASCADE
         )]
 )
-data class TextResult(
+data class Conclusion(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val testName: String,
-    val beginPoint: Int,
-    val endPoint: Int,
+    val test_name: String,
+    val min_border: Int,
+    val max_border: Int,
     val text: String
 )

@@ -1,9 +1,8 @@
 package com.example.englishease.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.englishease.domain.models.Question
 import com.example.englishease.domain.models.User
-import com.example.englishease.domain.models.Result
+import com.example.englishease.domain.models.Conclusion
 
 interface DomainRepository {
 
@@ -17,7 +16,7 @@ interface DomainRepository {
 
 
     suspend fun showTheoryList(): List<String>
-    suspend fun showResults(testName: String): List<Result>
+    suspend fun showResults(testName: String): List<Conclusion>
     suspend fun getCountQuestion(testName: String): Int
 
 

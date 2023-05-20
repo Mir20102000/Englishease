@@ -4,12 +4,10 @@ import android.app.Application
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.LiveData
 import com.example.englishease.data.database.AppDatabase
 import com.example.englishease.data.models.Test
-import com.example.englishease.data.models.TextResult
+import com.example.englishease.data.models.Conclusion
 import com.example.englishease.domain.models.Question
-import com.example.englishease.domain.models.Result
 import com.example.englishease.domain.models.User
 import com.example.englishease.domain.repository.DomainRepository
 import java.time.LocalDateTime
@@ -47,9 +45,9 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         return db.appDao().getResult(testName, points)
     }
 
-    override suspend fun showResults(testName: String): List<Result> {
+    override suspend fun showResults(testName: String): List<com.example.englishease.domain.models.Conclusion> {
         val resultData = db.appDao().getResults(testName)
-        val list = ArrayList<com.example.englishease.domain.models.Result>()
+        val list = ArrayList<com.example.englishease.domain.models.Conclusion>()
         for (i in resultData.indices) {
             list.add(mapResultToDomain(resultData[i]))
         }
@@ -79,8 +77,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         )
     }
 
-    private fun mapResultToDomain(resultData: com.example.englishease.data.models.Result): com.example.englishease.domain.models.Result {
-        return com.example.englishease.domain.models.Result(
+    private fun mapResultToDomain(resultData: com.example.englishease.data.models.Result): com.example.englishease.domain.models.Conclusion {
+        return com.example.englishease.domain.models.Conclusion(
             resultData.test_name,
             resultData.user,
             resultData.points,
@@ -529,7 +527,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     1,
                     "Nouns",
                     -1,
@@ -538,7 +536,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     2,
                     "Nouns",
                     22,
@@ -548,7 +546,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             )
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     3,
                     "Nouns",
                     62,
@@ -559,7 +557,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
 
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     4,
                     "The present simple tense",
                     -1,
@@ -568,7 +566,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     5,
                     "The present simple tense",
                     22,
@@ -578,7 +576,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             )
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     6,
                     "The present simple tense",
                     62,
@@ -589,7 +587,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
 
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     7,
                     "The past simple tense",
                     -1,
@@ -598,7 +596,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     8,
                     "The past simple tense",
                     22,
@@ -608,7 +606,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             )
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     9,
                     "The past simple tense",
                     62,
@@ -620,7 +618,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
 
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     10,
                     "The future simple tense",
                     -1,
@@ -629,7 +627,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     11,
                     "The future simple tense",
                     22,
@@ -639,7 +637,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             )
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     12,
                     "The future simple tense",
                     62,
@@ -650,7 +648,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
 
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     13,
                     "Modal verbs",
                     -1,
@@ -659,7 +657,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 )
             )
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     14,
                     "Modal verbs",
                     22,
@@ -669,7 +667,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             )
 
             db.appDao().insertTextResult(
-                TextResult(
+                Conclusion(
                     15,
                     "Modal verbs",
                     62,

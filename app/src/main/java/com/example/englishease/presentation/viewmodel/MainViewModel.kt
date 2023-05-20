@@ -57,8 +57,8 @@ class MainViewModel (
     private val _textResult = MutableLiveData<String>()
     var textResult: LiveData<String> = _textResult
 
-    private val _results = MutableLiveData<List<com.example.englishease.domain.models.Result>>()
-    var results: LiveData<List<com.example.englishease.domain.models.Result>> = _results
+    private val _results = MutableLiveData<List<com.example.englishease.domain.models.Conclusion>>()
+    var results: LiveData<List<com.example.englishease.domain.models.Conclusion>> = _results
 
     fun authorize(user: String) {
             _userName.value = user.substringBefore('@')

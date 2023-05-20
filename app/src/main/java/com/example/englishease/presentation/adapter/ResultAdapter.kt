@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.englishease.domain.models.Result
+import com.example.englishease.domain.models.Conclusion
 import com.example.englishease.R
 
 
-class ResultAdapter(val list: List<Result>) : RecyclerView.Adapter<ResultAdapter.MyResult>() {
+class ResultAdapter(val list: List<Conclusion>) : RecyclerView.Adapter<ResultAdapter.MyResult>() {
 
     class MyResult(item: View) : RecyclerView.ViewHolder(item) {
         val tvUser: TextView = item.findViewById(R.id.user_result_text_view)
