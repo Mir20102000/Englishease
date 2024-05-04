@@ -4,12 +4,12 @@
     <string name="hello_blank_fragment">This is authorization fragment</string>
     <string name="auth_to_register_btn">Already have an account?</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="login">Email</string>
-    <string name="password">Password</string>
+    <string name="login">\t\tEmail</string>
+    <string name="password">\t\tPassword</string>
     <string name="enter">Enter</string>
     <string name="create_account">Create account</string>
-    <string name="repeat_password">Repeat password</string>
-    <string name="email">Email</string>
+    <string name="repeat_password">\t\tRepeat password</string>
+    <string name="email">\t\tEmail</string>
     <string name="register">Register</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="theory">Theory</string>
@@ -43,5 +43,6 @@
     <string name="user_header">Users</string>
     <string name="results_header">Results</string>
     <string name="date_header">Date</string>
+    <string name="log_in">Log in</string>
 
 </resources>

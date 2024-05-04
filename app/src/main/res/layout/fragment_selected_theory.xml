@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#e9c46a"
+        android:background="#FFFFFF"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".presentation.SelectedTheoryFragment">
 
@@ -20,7 +20,7 @@
             android:paddingEnd="30dp"
             android:text="@string/theory_name"
             android:textAlignment="center"
-            android:textColor="#2a9d8f"
+            android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
