@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "708325486229",
+    "firebase_url": "https://englishease-aadf1-default-rtdb.firebaseio.com",
+    "project_id": "englishease-aadf1",
+    "storage_bucket": "englishease-aadf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708325486229:android:279d6f46f5a30a69c6759c",
+        "android_client_info": {
+          "package_name": "com.example.englishease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708325486229-4jl5pld8b96kenm6q6bm87ivvf7n3sbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlEZJJkNcGwsHNxki8bRGMJreqO7tb4LE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708325486229-4jl5pld8b96kenm6q6bm87ivvf7n3sbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
