@@ -8,12 +8,16 @@ import com.example.englishease.data.models.Question
 import com.example.englishease.data.models.Test
 import com.example.englishease.data.models.Result
 import com.example.englishease.data.models.Conclusion
+import com.example.englishease.data.models.Lesson
 
 @Dao
 interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTest(test: Test)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertLesson(lesson: Lesson)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertQuestion(question: Question)
@@ -35,6 +39,11 @@ interface AppDao {
 
     @Query("SELECT name FROM test")
     suspend fun getTheoryList(): List<String>
+
+    @Query("SELECT name FROM lesson")
+    suspend fun getLessonsList(): List<String>
+
+
 
     @Query("SELECT question_count FROM test WHERE test.name == :testName LIMIT 1")
     suspend fun getQuestionCount(testName: String): Int

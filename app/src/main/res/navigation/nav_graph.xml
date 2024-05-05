@@ -14,8 +14,8 @@
             android:id="@+id/action_authorizationFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_authorizationFragment_to_theoryFragment"
-            app:destination="@id/theoryFragment" />
+            android:id="@+id/action_authorizationFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -76,5 +76,14 @@
         <action
             android:id="@+id/action_resultFragment_to_theoryFragment"
             app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonsFragment"
+        android:name="com.example.englishease.presentation.LessonsFragment"
+        android:label="fragment_lessons"
+        tools:layout="@layout/fragment_lessons" >
+        <action
+            android:id="@+id/action_lessonsFragment_to_selectedTheoryFragment"
+            app:destination="@id/selectedTheoryFragment" />
     </fragment>
 </navigation>

@@ -18,8 +18,6 @@ import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 class TheoryFragment : Fragment(), TestAdapter.OnItemClickListener {
     private val vm: MainViewModel by activityViewModels { MainViewModelFactory(requireActivity().application) }
     private lateinit var binding: FragmentTheoryBinding
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

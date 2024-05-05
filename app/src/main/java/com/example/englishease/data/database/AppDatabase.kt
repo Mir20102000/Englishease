@@ -8,17 +8,21 @@ import com.example.englishease.data.models.Question
 import com.example.englishease.data.models.Test
 import com.example.englishease.data.models.Result
 import com.example.englishease.data.models.Conclusion
+import com.example.englishease.data.models.Lesson
 
-@Database(entities = [
-                Test::class,
-                Question::class,
-                Result::class,
-                Conclusion::class
-                     ],
-            version = 4,
-            exportSchema = false)
+@Database(
+    entities = [
+        Test::class,
+        Question::class,
+        Result::class,
+        Conclusion::class,
+        Lesson::class
+    ],
+    version = 8,
+    exportSchema = false
+)
 
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private var db: AppDatabase? = null
