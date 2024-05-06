@@ -38,14 +38,9 @@ class LessonsFragment : Fragment(), LessonAdapter.OnItemClickListener {
 //            binding.helloTextView.text = greeting
         }
         vm.showLessonsList()
-        vm.lessonName.observe(viewLifecycleOwner) {
-            val listAdapter = LessonAdapter(it, this)
-            binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            binding.lessonsRecyclerView.adapter = listAdapter
-        }
         vm.showLessonDesc()
-        vm.lessonDesc.observe(viewLifecycleOwner) {
-            val listAdapter = LessonAdapter(it, this)
+        vm.lessonName.observe(viewLifecycleOwner) {
+            val listAdapter = vm.lessonDesc.value?.let { it1 -> LessonAdapter(it, it1, this) }
             binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.lessonsRecyclerView.adapter = listAdapter
         }
