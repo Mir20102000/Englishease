@@ -41,8 +41,8 @@ class MainViewModel (
     private val _lessonName = MutableLiveData<List<String>>()
     var lessonName: LiveData<List<String>> = _lessonName
 
-    private val _lessonDesc = MutableLiveData<String>()
-    var lessonDesc: LiveData<String> = _lessonDesc
+    private val _lessonDesc = MutableLiveData<List<String>>()
+    var lessonDesc: LiveData<List<String>> = _lessonDesc
 
     private val _testName = MutableLiveData<String>()
     var testName: LiveData<String> = _testName
@@ -92,9 +92,9 @@ class MainViewModel (
         }
     }
 
-    fun showLessonDesc(lessonName: String) {
+    fun showLessonDesc() {
         viewModelScope.launch {
-            _lessonDesc.value = showLessonDescUseCase.showLessonDesc(lessonName)
+            _lessonDesc.value = showLessonDescUseCase.showLessonDesc()
         }
     }
 

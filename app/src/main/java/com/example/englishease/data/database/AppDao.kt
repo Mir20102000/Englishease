@@ -43,8 +43,8 @@ interface AppDao {
     @Query("SELECT name FROM lesson")
     suspend fun getLessonsNamesList(): List<String>
 
-    @Query("SELECT description FROM lesson WHERE lesson.name == :lessonName LIMIT 1")
-    suspend fun getLessonDesc(lessonName: String): String
+    @Query("SELECT description FROM lesson")
+    suspend fun getLessonDesc(): List<String>
 
 
     @Query("SELECT question_count FROM test WHERE test.name == :testName LIMIT 1")

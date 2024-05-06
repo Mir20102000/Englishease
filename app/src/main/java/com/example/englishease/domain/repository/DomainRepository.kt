@@ -17,7 +17,7 @@ interface DomainRepository {
 
     suspend fun showTheoryList(): List<String>
     suspend fun showLessonsNameList(): List<String>
-    suspend fun showLessonDesc(lessonName: String): String
+    suspend fun showLessonDesc(): List<String>
     suspend fun showResults(testName: String): List<Conclusion>
     suspend fun getCountQuestion(testName: String): Int
 

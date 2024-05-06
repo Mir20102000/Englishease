@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,6 +39,12 @@ class LessonsFragment : Fragment(), LessonAdapter.OnItemClickListener {
         }
         vm.showLessonsList()
         vm.lessonName.observe(viewLifecycleOwner) {
+            val listAdapter = LessonAdapter(it, this)
+            binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.lessonsRecyclerView.adapter = listAdapter
+        }
+        vm.showLessonDesc()
+        vm.lessonDesc.observe(viewLifecycleOwner) {
             val listAdapter = LessonAdapter(it, this)
             binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.lessonsRecyclerView.adapter = listAdapter

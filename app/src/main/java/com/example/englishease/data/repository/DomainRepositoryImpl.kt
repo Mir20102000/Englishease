@@ -1229,9 +1229,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         return db.appDao().getLessonsNamesList()
     }
 
-    override suspend fun showLessonDesc(lessonName: String): String {
-        return db.appDao().getLessonDesc(lessonName)
+    override suspend fun showLessonDesc(): List<String> {
+        return db.appDao().getLessonDesc()
     }
-
-
 }
