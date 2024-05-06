@@ -92,8 +92,8 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         return db.appDao().getTheoryList()
     }
 
-    override suspend fun showLessonsList(): List<String> {
-        if (db.appDao().getLessonsList().isEmpty()) {
+    override suspend fun showLessonsNameList(): List<String> {
+        if (db.appDao().getLessonsNamesList().isEmpty()) {
             Log.d("LLL", "пусто")
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
@@ -1226,7 +1226,11 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         } else {
             Log.d("LLL", "не пусто")
         }
-        return db.appDao().getLessonsList()
+        return db.appDao().getLessonsNamesList()
+    }
+
+    override suspend fun showLessonDesc(lessonName: String): String {
+        return db.appDao().getLessonDesc(lessonName)
     }
 
 

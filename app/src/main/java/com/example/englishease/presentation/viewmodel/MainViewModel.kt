@@ -12,6 +12,7 @@ import com.example.englishease.domain.usecases.ContinueTestUseCase
 import com.example.englishease.domain.usecases.FinishTestUseCase
 import com.example.englishease.domain.usecases.GetCountQuestionUseCase
 import com.example.englishease.domain.usecases.RegistrationUseCase
+import com.example.englishease.domain.usecases.ShowLessonDescUseCase
 import com.example.englishease.domain.usecases.ShowResultsUseCase
 import com.example.englishease.domain.usecases.ShowTheoryListUseCase
 import com.example.englishease.domain.usecases.ShowLessonsListUseCase
@@ -20,6 +21,7 @@ import kotlinx.coroutines.launch
 class MainViewModel (
     private val showTheoryListUseCase: ShowTheoryListUseCase,
     private val showLessonsListUseCase: ShowLessonsListUseCase,
+    private val showLessonDescUseCase: ShowLessonDescUseCase,
     private val beginTestUseCase: BeginTestUseCase,
     private val continueTestUseCase: ContinueTestUseCase,
     private val finishTestUseCase: FinishTestUseCase,
@@ -36,8 +38,11 @@ class MainViewModel (
     private val _theory = MutableLiveData<List<String>>()
     var catalog: LiveData<List<String>> = _theory
 
-    private val _lesson = MutableLiveData<List<String>>()
-    var lesson: LiveData<List<String>> = _lesson
+    private val _lessonName = MutableLiveData<List<String>>()
+    var lessonName: LiveData<List<String>> = _lessonName
+
+    private val _lessonDesc = MutableLiveData<String>()
+    var lessonDesc: LiveData<String> = _lessonDesc
 
     private val _testName = MutableLiveData<String>()
     var testName: LiveData<String> = _testName
@@ -83,7 +88,13 @@ class MainViewModel (
 
     fun showLessonsList() {
         viewModelScope.launch {
-            _lesson.value = showLessonsListUseCase.showLessonsList()
+            _lessonName.value = showLessonsListUseCase.showLessonsList()
+        }
+    }
+
+    fun showLessonDesc(lessonName: String) {
+        viewModelScope.launch {
+            _lessonDesc.value = showLessonDescUseCase.showLessonDesc(lessonName)
         }
     }
 

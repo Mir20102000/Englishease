@@ -44,6 +44,10 @@ class MainViewModelFactory(private val application: Application): ViewModelProvi
         ShowLessonsListUseCase(domainRepository)
     }
 
+    private val showLessonDescUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        ShowLessonDescUseCase(domainRepository)
+    }
+
     private val showResultsUseCase by lazy(LazyThreadSafetyMode.NONE) {
         ShowResultsUseCase(domainRepository)
     }
@@ -54,6 +58,7 @@ class MainViewModelFactory(private val application: Application): ViewModelProvi
 //            registrationUseCase,
             showTheoryListUseCase,
             showLessonsListUseCase,
+            showLessonDescUseCase,
             beginTestUseCase,
             continueTestUseCase,
             finishTestUseCase,

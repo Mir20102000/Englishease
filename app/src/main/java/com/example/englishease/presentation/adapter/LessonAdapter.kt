@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.englishease.R
 
@@ -11,7 +12,8 @@ class LessonAdapter(val list: List<String>,  val listener: LessonAdapter.OnItemC
     RecyclerView.Adapter<LessonAdapter.MyLesson>(){
 
         class MyLesson(item: View) : RecyclerView.ViewHolder(item) {
-            val textView: TextView = item.findViewById(R.id.lesson_item_text_view)
+//            val textView: TextView = item.findViewById(R.id.lesson_item_title)
+            val cardView: CardView = item.findViewById(R.id.lesson_card)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonAdapter.MyLesson {
@@ -21,7 +23,9 @@ class LessonAdapter(val list: List<String>,  val listener: LessonAdapter.OnItemC
 
     override fun onBindViewHolder(holder: LessonAdapter.MyLesson, position: Int) {
         val text = list[position]
-        holder.textView.text = text
+        val lessonName = list[position]
+//        holder.textView.text = text
+        holder.cardView.findViewById<TextView>(R.id.lesson_item_title).text = text
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(list[position])
         }

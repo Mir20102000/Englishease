@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".presentation.LessonsFragment">
 
     <TextView
         android:id="@+id/hello_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:text="@string/hello"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#ED8C3E"
+        android:gravity="center_horizontal"
+        android:lineSpacingMultiplier="0.5"
+        android:includeFontPadding="true"
+        android:text="@string/lessons"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+ />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lessons_recycler_view"
-        android:layout_width="415dp"
-        android:layout_height="668dp"
-        android:layout_marginTop="40dp"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_text_view"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -33,11 +33,11 @@ class LessonsFragment : Fragment(), LessonAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm.userName.observe(viewLifecycleOwner) {
-            val greeting = "Choose lesson you want to learn"
-            binding.helloTextView.text = greeting
+//            val greeting = "Lessons"
+//            binding.helloTextView.text = greeting
         }
         vm.showLessonsList()
-        vm.lesson.observe(viewLifecycleOwner) {
+        vm.lessonName.observe(viewLifecycleOwner) {
             val listAdapter = LessonAdapter(it, this)
             binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.lessonsRecyclerView.adapter = listAdapter
