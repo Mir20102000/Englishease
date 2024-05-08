@@ -14,8 +14,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
-
-class DomainRepositoryImpl(private val application: Application): DomainRepository {
+class DomainRepositoryImpl(private val application: Application) : DomainRepository {
     private var db = AppDatabase.getInstance(application)
     override fun authorization(user: User): Boolean {
         TODO("Not yet implemented")
@@ -40,8 +39,11 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
         val date = LocalDateTime.now()
             .format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
             .toString()
-        db.appDao().insertResult(com.example.englishease.data.models.Result(
-            0, testName, userName, points, date))
+        db.appDao().insertResult(
+            com.example.englishease.data.models.Result(
+                0, testName, userName, points, date
+            )
+        )
         return db.appDao().getResult(testName, points)
     }
 
@@ -60,19 +62,17 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
 
     private fun mapQuestionToDomain(questionData: com.example.englishease.data.models.Question): Question {
         return Question(
-            questionData.question_number,
-            questionData.question_text,
-            listOf(
+            questionNumber = questionData.question_number,
+            questionText = questionData.question_text,
+            variants = listOf(
                 questionData.answer_one,
                 questionData.answer_two,
-                questionData.answer_three,
-                questionData.answer_four
+                questionData.answer_three
             ),
-            listOf(
+            points = listOf(
                 questionData.point_one,
                 questionData.point_two,
-                questionData.point_three,
-                questionData.point_four
+                questionData.point_three
             )
         )
     }
@@ -85,7 +85,6 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             resultData.date
         )
     }
-
 
 
     override suspend fun showTheoryList(): List<String> {
@@ -641,7 +640,7 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                 com.example.englishease.data.models.Test(
                     name = "Adjectives and prepositions",
                     theory_text = "",
-                    question_count = 5
+                    question_count = 8
                 )
             )
             db.appDao().insertTest(
@@ -678,14 +677,12 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                     1,
                     "Adjectives and prepositions",
                     1,
-                    "The plural of Cat is:",
-                    "caties",
-                    "cats",
-                    "cates",
-                    "catis",
+                    "She's interested ___ buying the flat.",
+                    "about",
+                    "in",
+                    "on",
                     0,
-                    20,
-                    0,
+                    1,
                     0
                 )
             )
@@ -694,15 +691,13 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                     2,
                     "Adjectives and prepositions",
                     2,
-                    "The plular of watch is:",
-                    "watch",
-                    "watchies",
-                    "wathces",
-                    "wathches",
+                    "I'm a bit nervous ___ going somewhere so different.",
+                    "about",
+                    "of",
+                    "to",
+                    1,
                     0,
-                    0,
-                    0,
-                    20
+                    0
                 )
             )
             db.appDao().insertQuestion(
@@ -710,14 +705,12 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                     3,
                     "Adjectives and prepositions",
                     3,
-                    "What's the plural of Mouse?",
-                    "Mouses",
-                    "Mice",
-                    "Mouss",
-                    "Mousies",
+                    "The activities will be similar ___ what we did last year.",
+                    "at",
+                    "to",
+                    "with",
                     0,
-                    20,
-                    0,
+                    1,
                     0
                 )
             )
@@ -726,14 +719,12 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                     4,
                     "Adjectives and prepositions",
                     4,
-                    "What's the plural of fish?",
-                    "fish",
-                    "fishes",
-                    "fishs",
-                    "fihies",
-                    20,
+                    "He wants to be involved ___ making the decision.",
+                    "about",
+                    "in",
+                    "on",
                     0,
-                    0,
+                    1,
                     0
                 )
             )
@@ -742,29 +733,25 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
                     5,
                     "Adjectives and prepositions",
                     5,
-                    "The plural of pen is:",
-                    "pencies",
-                    "penies",
-                    "pens",
-                    "pencils",
+                    "She's angry ___ not being invited to the dinner.",
+                    "about",
+                    "for",
+                    "of",
+                    1,
                     0,
-                    0,
-                    20,
                     0
                 )
             )
             db.appDao().insertQuestion(
                 com.example.englishease.data.models.Question(
                     6,
-                    "Adjectives ending in '-ed' and '-ing'",
+                    "Adjectives and prepositions",
+                    6,
+                    "You're good ___ talking to big groups of people.",
+                    "at",
+                    "in",
+                    "to",
                     1,
-                    "Do you like cats? Yes, I __.",
-                    "do",
-                    "does",
-                    "don't",
-                    "doesn't",
-                    20,
-                    0,
                     0,
                     0
                 )
@@ -772,461 +759,432 @@ class DomainRepositoryImpl(private val application: Application): DomainReposito
             db.appDao().insertQuestion(
                 com.example.englishease.data.models.Question(
                     7,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    2,
-                    "Where __ your friend come from?",
-                    "are",
-                    "is",
-                    "do",
-                    "does",
-                    0,
-                    0,
-                    0,
-                    20
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    8,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    3,
-                    "I __ tired at all.",
-                    "are",
-                    "is",
-                    "'m not",
-                    "isn't",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    9,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    4,
-                    "It __ interesting.",
-                    "am",
-                    "is",
-                    "does",
-                    "do",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    10,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    5,
-                    "When __ it start?",
-                    "does",
-                    "do",
-                    "is",
-                    "are",
-                    20,
-                    0,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    11,
-                    "Articles: 'a', 'an', 'the'",
-                    1,
-                    "Their results __ much better.",
-                    "was",
-                    "were",
-                    "did",
-                    "didn't",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    12,
-                    "Articles: 'a', 'an', 'the'",
-                    2,
-                    "They __ me about it.",
-                    "did",
-                    "tell",
-                    "were",
-                    "told",
-                    0,
-                    0,
-                    0,
-                    20
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    13,
-                    "Articles: 'a', 'an', 'the'",
-                    3,
-                    "Whay kind of offer __ it?",
-                    "was",
-                    "were",
-                    "did",
-                    "didn't",
-                    20,
-                    0,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    14,
-                    "Articles: 'a', 'an', 'the'",
-                    4,
-                    "He __ Russia last week",
-                    "leave",
-                    "left",
-                    "leaves",
-                    "leaved",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    15,
-                    "Articles: 'a', 'an', 'the'",
-                    5,
-                    "Where __ you?",
-                    "was",
-                    "did",
-                    "were",
-                    "weren't",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    16,
-                    "Articles: 'the' or no article",
-                    1,
-                    "__ you join us?",
-                    "are",
-                    "is",
-                    "will",
-                    "were",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    17,
-                    "Articles: 'the' or no article",
-                    2,
-                    "I am __ pizza for me.",
-                    "buy",
-                    "will",
-                    "buying",
-                    "do",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    18,
-                    "Articles: 'the' or no article",
-                    3,
-                    "How long __ she away?",
-                    "will",
-                    "do",
-                    "going",
-                    "are",
-                    20,
-                    0,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    19,
-                    "Articles: 'the' or no article",
-                    4,
-                    "The song __ become very popular.",
-                    "will do",
-                    "will",
-                    "was",
-                    "were",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    20,
-                    "Articles: 'the' or no article",
-                    5,
-                    "He __ to improve his speaking skills.",
-                    "is going",
-                    "going",
-                    "will",
-                    "shall",
-                    20,
-                    0,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    21,
-                    "Comparative adjectives",
-                    1,
-                    "They have __ something.",
-                    "change",
-                    "changes",
-                    "to change",
-                    "to changed",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    22,
-                    "Comparative adjectives",
-                    2,
-                    "I must __ my speasking skills.",
-                    "to improve",
-                    "improve",
-                    "improved",
-                    "to improved",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    23,
-                    "Comparative adjectives",
-                    3,
-                    "I must __ the first place.",
-                    "take",
-                    "to take",
-                    "taking",
-                    "taken",
-                    20,
-                    0,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    24,
-                    "Comparative adjectives",
-                    4,
-                    "You need __ it one more time.",
-                    "to explaining",
-                    "explain",
-                    "to explain",
-                    "explained",
-                    0,
-                    0,
-                    20,
-                    0
-                )
-            )
-            db.appDao().insertQuestion(
-                com.example.englishease.data.models.Question(
-                    25,
-                    "Comparative adjectives",
-                    5,
-                    "He can __ to help us.",
-                    "to come",
-                    "come",
-                    "coming",
-                    "came",
-                    0,
-                    20,
-                    0,
-                    0
-                )
-            )
-            db.appDao().insertTextResult(
-                Conclusion(
-                    1,
                     "Adjectives and prepositions",
-                    -1,
-                    21,
-                    "You should try it one more time."
-                )
-            )
-            db.appDao().insertTextResult(
-                Conclusion(
-                    2,
-                    "Adjectives and prepositions",
-                    22,
-                    61,
-                    "Your results are not bad. But there is a room to improve."
-                )
-            )
-
-            db.appDao().insertTextResult(
-                Conclusion(
-                    3,
-                    "Adjectives and prepositions",
-                    62,
-                    101,
-                    "Congratulations! Your results are good. Keep it going!"
-                )
-            )
-
-
-            db.appDao().insertTextResult(
-                Conclusion(
-                    4,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    -1,
-                    21,
-                    "You should try it one more time."
-                )
-            )
-            db.appDao().insertTextResult(
-                Conclusion(
-                    5,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    22,
-                    61,
-                    "Your results are not bad. But there is a room to improve."
-                )
-            )
-
-            db.appDao().insertTextResult(
-                Conclusion(
-                    6,
-                    "Adjectives ending in '-ed' and '-ing'",
-                    62,
-                    101,
-                    "Congratulations! Your results are good. Keep it going!"
-                )
-            )
-
-
-            db.appDao().insertTextResult(
-                Conclusion(
                     7,
-                    "Articles: 'a', 'an', 'the'",
-                    -1,
-                    21,
-                    "You should try it one more time."
+                    "Eating a lot of red meat is not good ___ you.",
+                    "at",
+                    "for",
+                    "on",
+                    0,
+                    1,
+                    0
                 )
             )
-            db.appDao().insertTextResult(
-                Conclusion(
+            db.appDao().insertQuestion(
+                com.example.englishease.data.models.Question(
                     8,
-                    "Articles: 'a', 'an', 'the'",
-                    22,
-                    61,
-                    "Your results are not bad. But there is a room to improve."
+                    "Adjectives and prepositions",
+                    8,
+                    "I'm afraid ___ flying.",
+                    "of",
+                    "to",
+                    "with",
+                    1,
+                    0,
+                    0
                 )
             )
-
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    9,
+//                    "Adjectives ending in '-ed' and '-ing'",
+//                    4,
+//                    "It __ interesting.",
+//                    "am",
+//                    "is",
+//                    "does",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    10,
+//                    "Adjectives ending in '-ed' and '-ing'",
+//                    5,
+//                    "When __ it start?",
+//                    "does",
+//                    "do",
+//                    "is",
+//                    20,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    11,
+//                    "Articles: 'a', 'an', 'the'",
+//                    1,
+//                    "Their results __ much better.",
+//                    "was",
+//                    "were",
+//                    "did",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    12,
+//                    "Articles: 'a', 'an', 'the'",
+//                    2,
+//                    "They __ me about it.",
+//                    "did",
+//                    "tell",
+//                    "were",
+//                    0,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    13,
+//                    "Articles: 'a', 'an', 'the'",
+//                    3,
+//                    "Whay kind of offer __ it?",
+//                    "was",
+//                    "were",
+//                    "did",
+//                    20,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    14,
+//                    "Articles: 'a', 'an', 'the'",
+//                    4,
+//                    "He __ Russia last week",
+//                    "leave",
+//                    "left",
+//                    "leaves",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    15,
+//                    "Articles: 'a', 'an', 'the'",
+//                    5,
+//                    "Where __ you?",
+//                    "was",
+//                    "did",
+//                    "were",
+//                    0,
+//                    0,
+//                    20
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    16,
+//                    "Articles: 'the' or no article",
+//                    1,
+//                    "__ you join us?",
+//                    "are",
+//                    "is",
+//                    "will",
+//                    0,
+//                    0,
+//                    20
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    17,
+//                    "Articles: 'the' or no article",
+//                    2,
+//                    "I am __ pizza for me.",
+//                    "buy",
+//                    "will",
+//                    "buying",
+//                    0,
+//                    0,
+//                    20
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    18,
+//                    "Articles: 'the' or no article",
+//                    3,
+//                    "How long __ she away?",
+//                    "will",
+//                    "do",
+//                    "going",
+//                    20,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    19,
+//                    "Articles: 'the' or no article",
+//                    4,
+//                    "The song __ become very popular.",
+//                    "will do",
+//                    "will",
+//                    "was",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    20,
+//                    "Articles: 'the' or no article",
+//                    5,
+//                    "He __ to improve his speaking skills.",
+//                    "is going",
+//                    "going",
+//                    "will",
+//                    20,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    21,
+//                    "Comparative adjectives",
+//                    1,
+//                    "They have __ something.",
+//                    "change",
+//                    "changes",
+//                    "to change",
+//                    0,
+//                    0,
+//                    20
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    22,
+//                    "Comparative adjectives",
+//                    2,
+//                    "I must __ my speasking skills.",
+//                    "to improve",
+//                    "improve",
+//                    "improved",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    23,
+//                    "Comparative adjectives",
+//                    3,
+//                    "I must __ the first place.",
+//                    "take",
+//                    "to take",
+//                    "taking",
+//                    20,
+//                    0,
+//                    0
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    24,
+//                    "Comparative adjectives",
+//                    4,
+//                    "You need __ it one more time.",
+//                    "to explaining",
+//                    "explain",
+//                    "to explain",
+//                    0,
+//                    0,
+//                    20,
+//                )
+//            )
+//            db.appDao().insertQuestion(
+//                com.example.englishease.data.models.Question(
+//                    25,
+//                    "Comparative adjectives",
+//                    5,
+//                    "He can __ to help us.",
+//                    "to come",
+//                    "come",
+//                    "coming",
+//                    0,
+//                    20,
+//                    0
+//                )
+//            )
             db.appDao().insertTextResult(
                 Conclusion(
-                    9,
-                    "Articles: 'a', 'an', 'the'",
-                    62,
-                    101,
-                    "Congratulations! Your results are good. Keep it going!"
-                )
-            )
-
-
-
-            db.appDao().insertTextResult(
-                Conclusion(
-                    10,
-                    "Articles: 'the' or no article",
+                    1,
+                    "Adjectives and prepositions",
                     -1,
-                    21,
+                    3,
                     "You should try it one more time."
                 )
             )
             db.appDao().insertTextResult(
                 Conclusion(
-                    11,
-                    "Articles: 'the' or no article",
-                    22,
-                    61,
+                    2,
+                    "Adjectives and prepositions",
+                    4,
+                    6,
                     "Your results are not bad. But there is a room to improve."
                 )
             )
 
             db.appDao().insertTextResult(
                 Conclusion(
-                    12,
-                    "Articles: 'the' or no article",
-                    62,
-                    101,
+                    3,
+                    "Adjectives and prepositions",
+                    7,
+                    8,
                     "Congratulations! Your results are good. Keep it going!"
                 )
             )
 
 
-            db.appDao().insertTextResult(
-                Conclusion(
-                    13,
-                    "Comparative adjectives",
-                    -1,
-                    21,
-                    "Comparative adjectives."
-                )
-            )
-            db.appDao().insertTextResult(
-                Conclusion(
-                    14,
-                    "Comparative adjectives",
-                    22,
-                    61,
-                    "Your results are not bad. But there is a room to improve."
-                )
-            )
-
-            db.appDao().insertTextResult(
-                Conclusion(
-                    15,
-                    "Comparative adjectives",
-                    62,
-                    101,
-                    "Congratulations! Your results are good. Keep it going!"
-                )
-            )
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    4,
+//                    "Adjectives ending in '-ed' and '-ing'",
+//                    -1,
+//                    21,
+//                    "You should try it one more time."
+//                )
+//            )
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    5,
+//                    "Adjectives ending in '-ed' and '-ing'",
+//                    22,
+//                    61,
+//                    "Your results are not bad. But there is a room to improve."
+//                )
+//            )
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    6,
+//                    "Adjectives ending in '-ed' and '-ing'",
+//                    62,
+//                    101,
+//                    "Congratulations! Your results are good. Keep it going!"
+//                )
+//            )
+//
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    7,
+//                    "Articles: 'a', 'an', 'the'",
+//                    -1,
+//                    21,
+//                    "You should try it one more time."
+//                )
+//            )
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    8,
+//                    "Articles: 'a', 'an', 'the'",
+//                    22,
+//                    61,
+//                    "Your results are not bad. But there is a room to improve."
+//                )
+//            )
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    9,
+//                    "Articles: 'a', 'an', 'the'",
+//                    62,
+//                    101,
+//                    "Congratulations! Your results are good. Keep it going!"
+//                )
+//            )
+//
+//
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    10,
+//                    "Articles: 'the' or no article",
+//                    -1,
+//                    21,
+//                    "You should try it one more time."
+//                )
+//            )
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    11,
+//                    "Articles: 'the' or no article",
+//                    22,
+//                    61,
+//                    "Your results are not bad. But there is a room to improve."
+//                )
+//            )
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    12,
+//                    "Articles: 'the' or no article",
+//                    62,
+//                    101,
+//                    "Congratulations! Your results are good. Keep it going!"
+//                )
+//            )
+//
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    13,
+//                    "Comparative adjectives",
+//                    -1,
+//                    21,
+//                    "Comparative adjectives."
+//                )
+//            )
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    14,
+//                    "Comparative adjectives",
+//                    22,
+//                    61,
+//                    "Your results are not bad. But there is a room to improve."
+//                )
+//            )
+//
+//            db.appDao().insertTextResult(
+//                Conclusion(
+//                    15,
+//                    "Comparative adjectives",
+//                    62,
+//                    101,
+//                    "Congratulations! Your results are good. Keep it going!"
+//                )
+//            )
 
         } else {
             Log.d("LLL", "не пусто")
         }
         return db.appDao().getLessonsNamesList()
+    }
+
+    override suspend fun showQuestionsList(testName: String): List<Question> {
+        val list = mutableListOf<Question>()
+        for (i in db.appDao().getQuestionsList(testName)) {
+            val domainQuestion = mapQuestionToDomain(i)
+            list.add(domainQuestion)
+        }
+        return list
     }
 
     override suspend fun showLessonDesc(): List<String> {

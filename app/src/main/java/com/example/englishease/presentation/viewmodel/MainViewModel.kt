@@ -16,11 +16,13 @@ import com.example.englishease.domain.usecases.ShowLessonDescUseCase
 import com.example.englishease.domain.usecases.ShowResultsUseCase
 import com.example.englishease.domain.usecases.ShowTheoryListUseCase
 import com.example.englishease.domain.usecases.ShowLessonsListUseCase
+import com.example.englishease.domain.usecases.ShowQuestionsListUseCase
 import kotlinx.coroutines.launch
 
 class MainViewModel (
     private val showTheoryListUseCase: ShowTheoryListUseCase,
     private val showLessonsListUseCase: ShowLessonsListUseCase,
+    private val showQuestionsListUseCase: ShowQuestionsListUseCase,
     private val showLessonDescUseCase: ShowLessonDescUseCase,
     private val beginTestUseCase: BeginTestUseCase,
     private val continueTestUseCase: ContinueTestUseCase,
@@ -53,11 +55,17 @@ class MainViewModel (
     private val _question = MutableLiveData<Question>()
     var question: LiveData<Question> = _question
 
+    private val _questionList = MutableLiveData<List<Question>>()
+    var questionList: LiveData<List<Question>> = _questionList
+
     private val _declaration = MutableLiveData<String>()
     var declaration: LiveData<String> = _declaration
 
     private val _queCount = MutableLiveData<Int>()
     var queCount: LiveData<Int> = _queCount
+
+    private val _numberOfQuestions = MutableLiveData<Int>()
+    var numberOfQuestions: LiveData<Int> = _numberOfQuestions
 
     private val _pointsResult = MutableLiveData<Int>()
     var pointsResult: LiveData<Int> = _pointsResult
@@ -89,6 +97,12 @@ class MainViewModel (
     fun showLessonsList() {
         viewModelScope.launch {
             _lessonName.value = showLessonsListUseCase.showLessonsList()
+        }
+    }
+
+    fun showQuestionsList(lessonName: String) {
+        viewModelScope.launch {
+            _questionList.value = showQuestionsListUseCase.showQuestionsList(lessonName)
         }
     }
 

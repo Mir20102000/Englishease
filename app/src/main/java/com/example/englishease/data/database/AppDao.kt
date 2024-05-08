@@ -31,6 +31,9 @@ interface AppDao {
     @Query("SELECT theory_text FROM test WHERE test.name == :testName LIMIT 1")
     suspend fun getTheoryText(testName: String): String
 
+    @Query("SELECT * FROM question WHERE test_name == :testName")
+    suspend fun getQuestionsList(testName: String): List<Question>
+
     @Query("SELECT * FROM question WHERE question.test_name == :testName AND question_number == :questionNumber LIMIT 1")
     suspend fun getQuestionInfo(testName: String, questionNumber: Int): Question
 

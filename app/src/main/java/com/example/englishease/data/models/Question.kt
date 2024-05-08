@@ -23,9 +23,7 @@ data class Question(
     val answer_one: String,
     val answer_two: String,
     val answer_three: String,
-    val answer_four: String,
     val point_one: Int,
     val point_two: Int,
-    val point_three: Int,
-    val point_four: Int
+    val point_three: Int
 )

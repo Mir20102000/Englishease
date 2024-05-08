@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentSelectedTestBinding
+import com.example.englishease.presentation.adapter.QuestionAdapter
 import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 
@@ -32,6 +33,7 @@ class SelectedTestFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         vm.question.observe(viewLifecycleOwner) {
             binding.textViewSubjectNameQuest.text = vm.testName.value
             val text = "${it.questionNumber}/${vm.queCount.value}"
@@ -40,21 +42,20 @@ class SelectedTestFragment : Fragment() {
             binding.radioButton1.text = it.variants[0]
             binding.radioButton2.text = it.variants[1]
             binding.radioButton3.text = it.variants[2]
-            binding.radioButton4.text = it.variants[3]
         }
         binding.buttonContinue.setOnClickListener {
             var pointResult = 0
             if (binding.radioButton1.isChecked) {
                 pointResult += vm.question.value?.points?.get(0) ?: 0
+                binding.radioButton1.isChecked = false
             }
             if (binding.radioButton2.isChecked) {
                 pointResult += vm.question.value?.points?.get(1) ?: 0
+                binding.radioButton2.isChecked = false
             }
             if (binding.radioButton3.isChecked) {
                 pointResult += vm.question.value?.points?.get(2) ?: 0
-            }
-            if (binding.radioButton4.isChecked) {
-                pointResult += vm.question.value?.points?.get(3) ?: 0
+                binding.radioButton3.isChecked = false
             }
 
             vm.setPoints(pointResult + (vm.pointsResult.value ?: 0))

@@ -43,7 +43,7 @@ class ResultFragment : Fragment() {
             binding.textViewSubjectNameResult.text = it
         }
         vm.pointsResult.observe(viewLifecycleOwner) {
-            val result = "Test result: ${it.toInt()}"
+            val result = "Test result: ${it.toInt()}/${vm.queCount.value}"
             binding.textViewResult.text = result
             vm.testName.value?.let { it1 -> vm.userName.value?.let { it2 ->
                 vm.getResult(it1, it.toInt(), it2)

@@ -41,13 +41,14 @@ class LessonsFragment : Fragment(), LessonAdapter.OnItemClickListener {
         vm.showLessonDesc()
         vm.lessonName.observe(viewLifecycleOwner) {
             val listAdapter = vm.lessonDesc.value?.let { it1 -> LessonAdapter(it, it1, this) }
+//            val listAdapter = LessonAdapter(it, this)
             binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.lessonsRecyclerView.adapter = listAdapter
         }
     }
-
     override fun onItemClickListener(testName: String) {
         vm.saveTestName(testName)
         findNavController().navigate(R.id.action_lessonsFragment_to_selectedTheoryFragment)
     }
+
 }

@@ -18,7 +18,7 @@ import com.example.englishease.data.models.Lesson
         Conclusion::class,
         Lesson::class
     ],
-    version = 8,
+    version = 10,
     exportSchema = false
 )
 
