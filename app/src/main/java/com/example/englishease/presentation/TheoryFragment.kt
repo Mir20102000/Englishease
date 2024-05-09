@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentTheoryBinding
+import com.example.englishease.presentation.adapter.LessonAdapter
 import com.example.englishease.presentation.adapter.TestAdapter
 import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
@@ -21,7 +22,7 @@ class TheoryFragment : Fragment(), TestAdapter.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,16 +34,25 @@ class TheoryFragment : Fragment(), TestAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.userName.observe(viewLifecycleOwner) {
-            val greeting = "Choose lesson you want to learn"
-            binding.helloTextView.text = greeting
+//            val greeting = "Choose lesson you want to learn"
+//            binding.helloTextView.text = greeting
         }
         vm.showTheoryList()
+//        vm.showLessonsList()
+//        vm.showLessonDesc()
         vm.catalog.observe(viewLifecycleOwner) {
             val listAdapter = TestAdapter(it, this)
             binding.theoryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.theoryRecyclerView.adapter = listAdapter
         }
-        super.onViewCreated(view, savedInstanceState)
+//        vm.catalog.observe(viewLifecycleOwner) {
+//            val listAdapter = TestAdapter(it, this)
+//            binding.theoryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//            binding.theoryRecyclerView.adapter = listAdapter
+//        }
+        binding.buttonBackFromTestsToMenu.setOnClickListener() {
+            findNavController().navigate(R.id.action_theoryFragment_to_menuFragment)
+        }
     }
 
     override fun onItemClickListener(testName: String) {

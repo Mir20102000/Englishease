@@ -45,10 +45,13 @@ class LessonsFragment : Fragment(), LessonAdapter.OnItemClickListener {
             binding.lessonsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.lessonsRecyclerView.adapter = listAdapter
         }
+        binding.buttonBackFromLessonsToMenu.setOnClickListener() {
+            findNavController().navigate(R.id.action_lessonsFragment_to_menuFragment)
+        }
     }
     override fun onItemClickListener(testName: String) {
         vm.saveTestName(testName)
-        findNavController().navigate(R.id.action_lessonsFragment_to_selectedTheoryFragment)
+        findNavController().navigate(R.id.action_lessonsFragment_to_selectedLessonFragment)
     }
 
 }

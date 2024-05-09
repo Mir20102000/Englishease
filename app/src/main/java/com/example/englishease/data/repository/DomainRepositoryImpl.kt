@@ -639,35 +639,246 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertTest(
                 com.example.englishease.data.models.Test(
                     name = "Adjectives and prepositions",
-                    theory_text = "",
+                    theory_text = "        Some adjectives go with certain prepositions. There are no grammatical" +
+                            "rules for which preposition is used with which adjective, so it\'s a good idea to try to" +
+                            "learn them together. To help you do this, write new vocabulary in your notebook in a" +
+                            "sentence or phrase.\n" +
+                            "\n\n        However, there are some patterns that can help you. Let\'s look at them first.\n" +
+                            "Remember that a preposition is followed by a noun or a gerund (-ing form).\n" +
+                            "\n\nWith at\n" +
+                            "\nWe use at with adjectives like good/bad/amazing/brilliant/terrible, etc. to talk about\n" +
+                            "skills and abilities.\n" +
+                            "\nHe\'s really good at English.\n" +
+                            "\nShe\'s amazing at the piano.\n" +
+                            "\nThey\'re terrible at organising anything.\n" +
+                            "\nI\'m not very good at drawing.\n" +
+                            "\n\nWith about\n" +
+                            "\nWe often use about with adjectives of feelings like angry/excited/happy/nervous/sad/\n" +
+                            "stressed/worried,etc. to explain what is causing that feeling.\n" +
+                            "\nI\'m angry about the decision.\n" +
+                            "\nHe\'s nervous about the presentation.\n" +
+                            "\nShe\'s excited about the new job.\n" +
+                            "\nThey were worried about the exam.\n" +
+                            "\n\nWith of\n" +
+                            "\nHowever, sometimes we use of with feelings.\n" +
+                            "\nShe was afraid of telling her mum.\n" +
+                            "\nI\'m frightened of having an accident.\n" +
+                            "\nHe\'s scared of flying.\n" +
+                            "\nYou should be proud of your progress.\n" +
+                            "\n\nWith to\n" +
+                            "\nWe can use to to show the connection between people or things.\n" +
+                            "\nHe\'s married to the director.\n" +
+                            "\nI\'m addicted to my phone.\n" +
+                            "\nI\'m allergic to nuts. It\'s similar to the old one.\n" +
+                            "\n We can also use to to talk about someone\'s behaviour towards someone else.\n" +
+                            "\nThey were really friendly to me.\n" +
+                            "\nWas he nice to you?\n" +
+                            "\nHe is always polite to everyone.\n" +
+                            "\nShe was very rude to the waitress.\n" +
+                            "\n\nHere are some other useful adjectives with prepositions.\n" +
+                            "\n\nWith for\n" +
+                            "\nExercise is good for you.\n" +
+                            "\nStress is bad for you.\n" +
+                            "\nThe town is famous for its cheese.\n" +
+                            "\nI\'m responsible for the financial side of the business.\n" +
+                            "\nWith in She\'s interested in the project.\n" +
+                            "\nThey want someone who\'s experienced in design.\n" +
+                            "\nI didn\'t want to get involved in the argument.",
                     question_count = 8
                 )
             )
             db.appDao().insertTest(
                 com.example.englishease.data.models.Test(
                     name = "Adjectives ending in '-ed' and '-ing'",
-                    theory_text = "",
+                    theory_text = "Adjectives that end in -ed (e.g. bored, interested) and adjectives that end in -ing (e.g.\n" +
+                            "        boring, interesting) are often confused.\n" +
+                            "\n" +
+                            "        \\n\\n-ed adjectives\n" +
+                            "\n" +
+                            "        \\nAdjectives that end in -ed generally describe emotions – they tell us how people feel.\n" +
+                            "\n" +
+                            "        \\n\\nI was so bored in that lesson, I almost fell asleep.\n" +
+                            "        \\nHe was surprised to see Helen after all those years.\n" +
+                            "        \\nShe was really tired and went to bed early.\n" +
+                            "\n" +
+                            "        \\n\\n-ing adjectives\n" +
+                            "\n" +
+                            "        \\n\\nAdjectives that end in -ing generally describe the thing that causes the emotion – a boring lesson makes you feel bored.\n" +
+                            "\n" +
+                            "        \\n\\nHave you seen that film? It\\'s really frightening.\n" +
+                            "        \\nI could listen to her for hours. She\\'s so interesting.\n" +
+                            "        \\nI can\\'t sleep! That noise is really annoying!\n" +
+                            "\n" +
+                            "        \\n\\nHere are some adjectives that can have both an -ed and an -ing form.\n" +
+                            "        \\nannoyed         \\t\\t\\tannoying\n" +
+                            "        \\nbored           \\t\\t\\tboring\n" +
+                            "        \\nconfused        \\t\\t\\tconfusing\n" +
+                            "        \\ndisappointed    \\t\\t\\tdisappointing\n" +
+                            "        \\nexcited         \\t\\t\\texciting\n" +
+                            "        \\nfrightened      \\t\\t\\tfrightening\n" +
+                            "        \\ninterested      \\t\\t\\tinteresting\n" +
+                            "        \\nsurprised       \\t\\t\\tsurprising\n" +
+                            "        \\ntired           \\t\\t\\ttiring\n" +
+                            "        \\nworried         \\t\\t\\tworrying",
                     question_count = 5
                 )
             )
             db.appDao().insertTest(
                 com.example.englishease.data.models.Test(
                     name = "Articles: 'a', 'an', 'the'",
-                    theory_text = "",
+                    theory_text = "Singular, countable nouns always have an article – a/an or the (or another determiner –\n" +
+                            "        my, your, this, that, etc.).\n" +
+                            "\n" +
+                            "        \\nWe use a/an – the indefinite article – when we talk about something for the first time, or something that is part of a group or type.\n" +
+                            "\n" +
+                            "        \\n\\nI saw a good film yesterday.\n" +
+                            "        \\nDo you want a drink?\n" +
+                            "\n" +
+                            "        \\n\\nWe use a when the word that follows it begins with a consonant sound. We use an when\n" +
+                            "        it\\'s followed by a vowel sound. This makes pronunciation easier.\n" +
+                            "\n" +
+                            "        \\n\\nShe has a university degree.\n" +
+                            "        \\nIt took me an hour to get home.\n" +
+                            "\n" +
+                            "        \\n\\nWe use the – the definite article – when the listener already knows which thing we are\n" +
+                            "        talking about because it was mentioned before or because there\\'s only one of them.\n" +
+                            "\n" +
+                            "        \\n\\nI\\'m going to take the dog for a walk.\n" +
+                            "        \\nHave you seen the car key?\n" +
+                            "        \\nThey go to the school next to the bridge.\n" +
+                            "\n" +
+                            "        \\n\\nThings in general\n" +
+                            "\n" +
+                            "        \\n\\nWhen we talk about things in general, we normally use a plural or uncountable noun with\n" +
+                            "        no article.\n" +
+                            "\n" +
+                            "        \\n\\nBirds eat worms.\n" +
+                            "        \\nWater freezes at 0°C.\n" +
+                            "        \\nChildren need a lot of sleep.\n" +
+                            "\n" +
+                            "        \\n\\nParticular groups of things\n" +
+                            "\n" +
+                            "        \\n\\nWhen we talk about a particular group of things, we use the.\n" +
+                            "\n" +
+                            "        \\n\\nWe went to the zoo and saw the kangaroos. (These are the particular kangaroos in that\n" +
+                            "        zoo – not kangaroos in general.)",
                     question_count = 5
                 )
             )
             db.appDao().insertTest(
                 com.example.englishease.data.models.Test(
                     name = "Articles: 'the' or no article",
-                    theory_text = "",
+                    theory_text = "We don\\'t usually use an article in expressions with bed, work and home.\n" +
+                            "\n" +
+                            "        \\n\\ngo to bed / be in bed\n" +
+                            "        \\ngo to work / be at work / start work / finish work\n" +
+                            "        \\ngo home / be at home / get home / stay at home\n" +
+                            "\n" +
+                            "        \\nWe also don\\'t normally use an article in expressions with school, university, prison and\n" +
+                            "        hospital.\n" +
+                            "\n" +
+                            "        \\n\\nstart school / go to school / be at school\n" +
+                            "        \\ngo to university / be at university\n" +
+                            "        \\nbe sent to prison / go to prison / be in prison\n" +
+                            "        \\ngo to hospital / be in hospital\n" +
+                            "\n" +
+                            "        \\n\\nBut we usually use the if someone is just visiting the place, and not there as a\n" +
+                            "        student/prisoner/patient, etc.\n" +
+                            "\n" +
+                            "        \\n\\nMy son has started school now. I went to the school to meet his teacher.\n" +
+                            "        \\nI went to the prison a lot when I was a social worker.\n" +
+                            "        \\nI\\'m at the hospital. My sister has just had a baby.\n" +
+                            "\n" +
+                            "        \\n\\nPlace names\n" +
+                            "\n" +
+                            "        \\n\\nWe don\\'t normally use an article for continents, most countries, cities, towns, lakes,\n" +
+                            "        mountains or universities. So, we say:\n" +
+                            "\n" +
+                            "        \\n\\nAfrica, Asia, Europe\n" +
+                            "        \\nIndia, Ghana, Peru, Denmark\n" +
+                            "        \\nAddis Ababa, Hanoi, New York, Moscow\n" +
+                            "        \\nLake Victoria, Lake Superior, Lake Tanganyika\n" +
+                            "        \\nMount Everest, Mount Kilimanjaro, Mount Elbrus\n" +
+                            "        \\nCardiff University, Harvard University, Manchester University\n" +
+                            "\n" +
+                            "        \\n\\nSome countries are different. Country names with United have the. There are other\n" +
+                            "        countries which are exceptions too. So, we say:\n" +
+                            "\n" +
+                            "        \\n\\nthe United Arab Emirates, the United Kingdom, the United States of America\n" +
+                            "        the Bahamas, the Gambia\n" +
+                            "\n" +
+                            "        \\n\\nSeas and oceans, mountain ranges and rivers have the:\n" +
+                            "\n" +
+                            "        \\n\\nthe Atlantic, the Pacific, the Mediterranean\n" +
+                            "        \\nthe Andes, the Himalayas, the Alps\n" +
+                            "        \\nthe Nile, the Amazon, the Yangtze\n" +
+                            "\n" +
+                            "        \\n\\nUniversities with of in the title also have the:\n" +
+                            "\n" +
+                            "        \\n\\nthe University of Cape Town, the University of Delhi, the University of Tokyo",
                     question_count = 5
                 )
             )
             db.appDao().insertTest(
                 com.example.englishease.data.models.Test(
                     name = "Comparative adjectives",
-                    theory_text = "",
+                    theory_text = "We use comparative adjectives to compare two things or show change. The comparative form\n" +
+                            "        depends on the number of syllables in the adjective.\n" +
+                            "\n" +
+                            "        \\n\\nAdjectives with one syllable\n" +
+                            "\n" +
+                            "        \\n\\nTo make comparative forms with one-syllable adjectives, we usually add -er:\n" +
+                            "\n" +
+                            "        \\n\\nold → older\n" +
+                            "        \\nclean → cleaner\n" +
+                            "        \\nslow → slower\n" +
+                            "\n" +
+                            "        \\n\\nIf an adjective ends in -e, we add -r:\n" +
+                            "\n" +
+                            "        \\n\\nsafe → safer\n" +
+                            "        \\nnice → nicer\n" +
+                            "\n" +
+                            "        \\n\\nIf an adjective ends in a vowel and a consonant, we usually double the consonant:\n" +
+                            "\n" +
+                            "        \\n\\nbig → bigger\n" +
+                            "        \\nhot → hotter\n" +
+                            "\n" +
+                            "        \\n\\nAdjectives with two or more syllables\n" +
+                            "\n" +
+                            "        \\n\\nIf a two-syllable adjective ends in a consonant and -y, we change -y to -i and add -er:\n" +
+                            "\n" +
+                            "        \\n\\nnoisy → noisier\n" +
+                            "        \\nhappy → happier\n" +
+                            "        \\neasy → easier\n" +
+                            "\n" +
+                            "        \\n\\nWe use more to make comparative forms for most other two-syllable adjectives and for all\n" +
+                            "        adjectives with three or more syllables:\n" +
+                            "\n" +
+                            "        \\n\\ncrowded → more crowded\n" +
+                            "        \\nstressful → more stressful\n" +
+                            "        \\ndangerous → more dangerous\n" +
+                            "\n" +
+                            "        \\n\\nException: You can either add -er/-r or use more with some two-syllable adjectives, such\n" +
+                            "        as common, cruel, gentle, handsome, likely, narrow, pleasant, polite, simple and stupid.\n" +
+                            "\n" +
+                            "        \\n\\nI think life in the countryside is simpler than in the city.\n" +
+                            "        \\nIt\\'s more simple to live in the city because everything you need is there.\n" +
+                            "\n" +
+                            "        \\n\\nIrregular adjectives\n" +
+                            "\n" +
+                            "        \\n\\nThe adjectives good, bad and far have irregular comparative forms:\n" +
+                            "\n" +
+                            "        \\n\\ngood → better\n" +
+                            "        \\nbad → worse\n" +
+                            "        \\nfar → further/farther\n" +
+                            "\n" +
+                            "        \\n\\nThan\n" +
+                            "\n" +
+                            "        \\n\\nWhen we want to say which person or thing we are comparing with, we can use than:\n" +
+                            "\n" +
+                            "        \\n\\nTheir house is cleaner than ours.\n" +
+                            "        \\nTraffic is slower in the city than in the countryside.\n" +
+                            "        \\nAfter the race I was more tired than Anne.",
                     question_count = 5
                 )
             )

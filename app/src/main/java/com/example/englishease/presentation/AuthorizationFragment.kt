@@ -62,7 +62,7 @@ class AuthorizationFragment : Fragment() {
                             "Login successful",
                             Snackbar.LENGTH_SHORT
                         ).show()
-                        findNavController().navigate(R.id.action_authorizationFragment_to_lessonsFragment)
+                        findNavController().navigate(R.id.action_authorizationFragment_to_menuFragment)
                     } else {
                         Snackbar.make(
                             view,

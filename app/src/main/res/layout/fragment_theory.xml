@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.TheoryFragment">
 
-    <TextView
-        android:id="@+id/hello_text_view"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:text="@string/lessons"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_back_from_tests_to_menu"
+            android:layout_width="38dp"
+            android:layout_height="48dp"
+            android:background="#ED8C3E"
+            android:contentDescription="button to back"
+            android:src="@drawable/ic_back_24"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/hello_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ED8C3E"
+            android:paddingTop="8dp"
+            android:paddingStart="123dp"
+            android:paddingBottom="8dp"
+            android:text="Tests"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/theory_recycler_view"
@@ -27,8 +44,5 @@
         android:layout_height="668dp"
         android:layout_marginTop="40dp"
         android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_text_view"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:paddingEnd="30dp" />
+</LinearLayout>

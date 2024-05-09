@@ -8,21 +8,36 @@
     android:orientation="vertical"
     tools:context=".presentation.LessonsFragment">
 
-    <TextView
-        android:id="@+id/hello_text_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="#ED8C3E"
-        android:gravity="center_horizontal"
-        android:lineSpacingMultiplier="0.5"
-        android:includeFontPadding="true"
-        android:text="@string/lessons"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
- />
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_back_from_lessons_to_menu"
+            android:layout_width="38dp"
+            android:layout_height="48dp"
+            android:background="#ED8C3E"
+            android:contentDescription="button to back"
+            android:src="@drawable/ic_back_24"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/hello_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="#ED8C3E"
+            android:paddingStart="120dp"
+            android:text="@string/lessons"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lessons_recycler_view"

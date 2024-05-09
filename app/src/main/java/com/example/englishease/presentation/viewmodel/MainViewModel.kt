@@ -49,6 +49,9 @@ class MainViewModel (
     private val _testName = MutableLiveData<String>()
     var testName: LiveData<String> = _testName
 
+//    private val _singleLessonName = MutableLiveData<String>()
+//    var singleLessonName: LiveData<String> = _singleLessonName
+
     private val _theoryText = MutableLiveData<String>()
     var theoryText: LiveData<String> = _theoryText
 

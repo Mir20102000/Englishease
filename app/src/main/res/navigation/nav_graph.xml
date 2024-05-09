@@ -14,8 +14,8 @@
             android:id="@+id/action_authorizationFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_authorizationFragment_to_lessonsFragment"
-            app:destination="@id/lessonsFragment" />
+            android:id="@+id/action_authorizationFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_theoryFragment_to_selectedTheoryFragment"
             app:destination="@id/selectedTheoryFragment" />
+        <action
+            android:id="@+id/action_theoryFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedTheoryFragment"
@@ -83,7 +86,27 @@
         android:label="fragment_lessons"
         tools:layout="@layout/fragment_lessons" >
         <action
-            android:id="@+id/action_lessonsFragment_to_selectedTheoryFragment"
-            app:destination="@id/selectedTheoryFragment" />
+            android:id="@+id/action_lessonsFragment_to_selectedLessonFragment"
+            app:destination="@id/selectedLessonFragment" />
+        <action
+            android:id="@+id/action_lessonsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.englishease.presentation.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedLessonFragment"
+        android:name="com.example.englishease.presentation.SelectedLessonFragment"
+        android:label="fragment_selected_lesson"
+        tools:layout="@layout/fragment_selected_lesson" />
 </navigation>

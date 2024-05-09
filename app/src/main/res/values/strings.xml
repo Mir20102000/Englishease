@@ -45,5 +45,6 @@
     <string name="results_header">Results</string>
     <string name="date_header">Date</string>
     <string name="log_in">Log in</string>
+    <string name="profile">Profile</string>
 
 </resources>
