@@ -41,12 +41,12 @@ class SelectedTheoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.testName.observe(viewLifecycleOwner) {
             binding.textViewSubjectNameStart.text = it
-            vm.getDeclTest(it)
+//            vm.getDeclTest(it)
             vm.getQuestionCount(it)
         }
-        vm.declaration.observe(viewLifecycleOwner) {
-            binding.theoryTextTextView.text = it
-        }
+//        vm.declaration.observe(viewLifecycleOwner) {
+//            binding.theoryTextTextView.text = it
+//        }
         binding.buttonShowResultsStart.setOnClickListener {
             findNavController().navigate(R.id.action_selectedTheoryFragment_to_selectedTestResultFragment)
         }

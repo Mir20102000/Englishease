@@ -1,5 +1,6 @@
 package com.example.englishease.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,11 +38,19 @@ class AuthorizationFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.authorizeBtn.setOnClickListener {
             binding.authProgressBar.visibility = View.VISIBLE
             val email = binding.loginEdittext.text.toString()
             val password = binding.passwordEdittext.text.toString()
+
+            val snackbar = Snackbar.make(
+                        view,
+                        "Login failed, check the data entered",
+                        Snackbar.LENGTH_SHORT
+                    )
+
             if (email.isEmpty() || password.isEmpty()) {
                 Snackbar.make(
                     view,
@@ -64,11 +73,12 @@ class AuthorizationFragment : Fragment() {
                         ).show()
                         findNavController().navigate(R.id.action_authorizationFragment_to_menuFragment)
                     } else {
-                        Snackbar.make(
-                            view,
-                            "Login failed, check the data entered",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+//                        Snackbar.make(
+//                            view,
+//                            "Login failed, check the data entered",
+//                            Snackbar.LENGTH_SHORT
+//                        ).show()
+                        snackbar.show()
                     }
                 }
 

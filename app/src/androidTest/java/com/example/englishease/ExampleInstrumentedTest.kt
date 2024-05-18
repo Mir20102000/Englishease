@@ -7,6 +7,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.hasErrorText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.rule.ActivityTestRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.englishease.presentation.MainActivity
 
@@ -31,20 +32,20 @@ import org.junit.Rule
 ////
 ////    }
     class ExampleInstrumentedTest {
-//        @Rule
-//        @JvmField
-//        var activityScenario = ActivityTestRule(MainActivity::class.java)
+        @Rule
+        @JvmField
+        var activityScenario = ActivityTestRule(MainActivity::class.java)
 
         @Test
         fun shortPassword_causesError() {
-            onView(withId(R.id.already_have_an_acc_btn))
+            onView(withId(R.id.create_acc_btn))
                 .perform(ViewActions.click())
             onView(withId(R.id.email_for_reg_edittext))
                 .perform(ViewActions.typeText("testperson@mail.ru"))
             onView(withId(R.id.pass_for_reg_edittext))
-                .perform(ViewActions.typeText("verystrongpass"))
+                .perform(ViewActions.typeText("very"))
             onView(withId(R.id.repeat_pass_edittext))
-                .perform(ViewActions.typeText("verystrongpass"))
+                .perform(ViewActions.typeText("very"))
             Espresso.closeSoftKeyboard()
             onView(withId(R.id.register_btn))
                 .perform(ViewActions.click())
@@ -54,14 +55,14 @@ import org.junit.Rule
 
         @Test
         fun passwordsDoNotMatch_causesError() {
-            onView(withId(R.id.already_have_an_acc_btn))
+            onView(withId(R.id.create_acc_btn))
                 .perform(ViewActions.click())
             onView(withId(R.id.email_for_reg_edittext))
                 .perform(ViewActions.typeText("testperson@mail.ru"))
             onView(withId(R.id.pass_for_reg_edittext))
-                .perform(ViewActions.typeText("verystrongpass"))
+                .perform(ViewActions.typeText("verystrong"))
             onView(withId(R.id.repeat_pass_edittext))
-                .perform(ViewActions.typeText("verystrongpass"))
+                .perform(ViewActions.typeText("strongpass"))
             Espresso.closeSoftKeyboard()
             onView(withId(R.id.register_btn))
                 .perform(ViewActions.click())

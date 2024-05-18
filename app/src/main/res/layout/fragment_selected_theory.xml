@@ -34,7 +34,7 @@
             android:layout_marginTop="40dp"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:text="@string/lesson_text"
+            android:text=""
             android:textColor="#264653"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"

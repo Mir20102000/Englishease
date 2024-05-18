@@ -80,7 +80,7 @@ class RegistrationFragment : Fragment() {
                         ).show()
                         findNavController().navigate(R.id.action_registrationFragment_to_authorizationFragment)
                     } else {
-                        Snackbar.make(
+                         Snackbar.make(
                             view,
                             "Registration failed, check the data entered",
                             Snackbar.LENGTH_SHORT
