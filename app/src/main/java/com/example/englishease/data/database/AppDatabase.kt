@@ -12,13 +12,13 @@ import com.example.englishease.data.models.Lesson
 
 @Database(
     entities = [
+        Lesson::class,
         Test::class,
         Question::class,
         Result::class,
-        Conclusion::class,
-        Lesson::class
+        Conclusion::class
     ],
-    version = 13,
+    version = 14,
     exportSchema = false
 )
 
