@@ -16,6 +16,5 @@ import androidx.room.PrimaryKey
 data class Test(
     @PrimaryKey
     val name: String,
-    val theory_text: String,
     val question_count: Int
 )
