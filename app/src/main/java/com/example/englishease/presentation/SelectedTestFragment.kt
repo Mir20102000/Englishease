@@ -34,41 +34,41 @@ class SelectedTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        vm.question.observe(viewLifecycleOwner) {
-            binding.textViewSubjectNameQuest.text = vm.testName.value
-            val text = "${it.questionNumber}/${vm.queCount.value}"
-            binding.textViewProgress.text = text
-            binding.textViewQuestDeclaration.text = it.questionText
-            binding.radioButton1.text = it.variants[0]
-            binding.radioButton2.text = it.variants[1]
-            binding.radioButton3.text = it.variants[2]
-        }
-        binding.buttonContinue.setOnClickListener {
-            var pointResult = 0
-            if (binding.radioButton1.isChecked) {
-                pointResult += vm.question.value?.points?.get(0) ?: 0
-                binding.radioButton1.isChecked = false
-            }
-            if (binding.radioButton2.isChecked) {
-                pointResult += vm.question.value?.points?.get(1) ?: 0
-                binding.radioButton2.isChecked = false
-            }
-            if (binding.radioButton3.isChecked) {
-                pointResult += vm.question.value?.points?.get(2) ?: 0
-                binding.radioButton3.isChecked = false
-            }
+//        vm.question.observe(viewLifecycleOwner) {
+//            binding.textViewSubjectNameQuest.text = vm.testName.value
+//            val text = "${it.questionNumber}/${vm.queCount.value}"
+////            binding.textViewProgress.text = text
+////            binding.textViewQuestDeclaration.text = it.questionText
+////            binding.radioButton1.text = it.variants[0]
+////            binding.radioButton2.text = it.variants[1]
+////            binding.radioButton3.text = it.variants[2]
+//        }
+//        binding.buttonContinue.setOnClickListener {
+//            var pointResult = 0
+//            if (binding.radioButton1.isChecked) {
+//                pointResult += vm.question.value?.points?.get(0) ?: 0
+//                binding.radioButton1.isChecked = false
+//            }
+//            if (binding.radioButton2.isChecked) {
+//                pointResult += vm.question.value?.points?.get(1) ?: 0
+//                binding.radioButton2.isChecked = false
+//            }
+//            if (binding.radioButton3.isChecked) {
+//                pointResult += vm.question.value?.points?.get(2) ?: 0
+//                binding.radioButton3.isChecked = false
+//            }
 
-            vm.setPoints(pointResult + (vm.pointsResult.value ?: 0))
+//            vm.setPoints(pointResult + (vm.pointsResult.value ?: 0))
 
-        if (vm.queCount.value == vm.question.value?.questionNumber) {
-            findNavController().navigate(R.id.action_selectedTestFragment_to_resultFragment)
-        } else {
-            vm.testName.value?.let { it1 ->
-                vm.getQuestion(
-                    it1,
-                    (vm.question.value?.questionNumber?.plus(1) ?: 1)) }
-            }
-        }
+//        if (vm.queCount.value == vm.question.value?.questionNumber) {
+//            findNavController().navigate(R.id.action_selectedTestFragment_to_resultFragment)
+//        } else {
+//            vm.testName.value?.let { it1 ->
+//                vm.getQuestion(
+//                    it1,
+//                    (vm.question.value?.questionNumber?.plus(1) ?: 1)) }
+////            }
+//        }
         super.onViewCreated(view, savedInstanceState)
     }
 }
