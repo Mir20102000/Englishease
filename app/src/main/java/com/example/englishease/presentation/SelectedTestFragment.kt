@@ -34,6 +34,8 @@ class SelectedTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
+
 //        vm.question.observe(viewLifecycleOwner) {
 //            binding.textViewSubjectNameQuest.text = vm.testName.value
 //            val text = "${it.questionNumber}/${vm.queCount.value}"
