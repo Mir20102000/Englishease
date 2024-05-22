@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentSelectedTestBinding
 import com.example.englishease.presentation.adapter.QuestionAdapter
@@ -33,17 +34,24 @@ class SelectedTestFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        super.onViewCreated(view, savedInstanceState)
+        vm.showQuestionsList(vm.testName.toString())
+        binding.textViewSubjectNameQuest.text = vm.testName.value
+        vm.questionList.observe(viewLifecycleOwner) {
+            val listAdapter = QuestionAdapter(it)
+            binding.questionsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.questionsRecyclerView.adapter = listAdapter
+        }
 
 
 //        vm.question.observe(viewLifecycleOwner) {
 //            binding.textViewSubjectNameQuest.text = vm.testName.value
 //            val text = "${it.questionNumber}/${vm.queCount.value}"
-////            binding.textViewProgress.text = text
-////            binding.textViewQuestDeclaration.text = it.questionText
-////            binding.radioButton1.text = it.variants[0]
-////            binding.radioButton2.text = it.variants[1]
-////            binding.radioButton3.text = it.variants[2]
+//            binding.textViewProgress.text = text
+//            binding.textViewQuestDeclaration.text = it.questionText
+//            binding.radioButton1.text = it.variants[0]
+//            binding.radioButton2.text = it.variants[1]
+//            binding.radioButton3.text = it.variants[2]
 //        }
 //        binding.buttonContinue.setOnClickListener {
 //            var pointResult = 0
@@ -59,9 +67,9 @@ class SelectedTestFragment : Fragment() {
 //                pointResult += vm.question.value?.points?.get(2) ?: 0
 //                binding.radioButton3.isChecked = false
 //            }
-
+//
 //            vm.setPoints(pointResult + (vm.pointsResult.value ?: 0))
-
+//
 //        if (vm.queCount.value == vm.question.value?.questionNumber) {
 //            findNavController().navigate(R.id.action_selectedTestFragment_to_resultFragment)
 //        } else {
@@ -69,8 +77,7 @@ class SelectedTestFragment : Fragment() {
 //                vm.getQuestion(
 //                    it1,
 //                    (vm.question.value?.questionNumber?.plus(1) ?: 1)) }
-////            }
+//            }
 //        }
-        super.onViewCreated(view, savedInstanceState)
     }
 }

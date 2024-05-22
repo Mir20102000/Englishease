@@ -59,7 +59,7 @@ interface AppDao {
     @Query("SELECT text FROM text_result WHERE test_name == :testName AND min_border <= :points AND max_border >= :points LIMIT 1")
     suspend fun getResult(testName: String, points: Int): String
 
-    @Query("SELECT * FROM question WHERE test_name == :testName")
-    suspend fun getQuestions(testName: String)
+//    @Query("SELECT * FROM question WHERE test_name == :testName")
+//    suspend fun getQuestions(testName: String)
 
 }

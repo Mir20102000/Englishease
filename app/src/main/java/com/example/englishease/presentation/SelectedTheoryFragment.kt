@@ -53,7 +53,8 @@ class SelectedTheoryFragment : Fragment() {
         binding.startTestBtn.setOnClickListener {
             vm.setQuestionNumber(1)
             vm.setPoints(0)
-            vm.testName.value?.let { it1 -> vm.getQuestion(it1, 1) }
+//            vm.testName.value?.let { it1 -> vm.getQuestion(it1, 1) }
+            vm.testName.let { vm.showQuestionsList(it.toString()) }
             findNavController().navigate(R.id.action_selectedTheoryFragment_to_selectedTestFragment)
         }
         super.onViewCreated(view, savedInstanceState)

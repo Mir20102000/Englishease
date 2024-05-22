@@ -3,21 +3,25 @@ package com.example.englishease.presentation.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.englishease.R
 //import com.example.englishease.data.models.Question
 
 import com.example.englishease.domain.models.Question
 
-class QuestionAdapter(val questions: List<Question>, val listener: QuestionAdapter.OnItemClickListener )
+class QuestionAdapter(val questions: List<Question>)
     : RecyclerView.Adapter<QuestionAdapter.MyQuestion>() {
 
     class MyQuestion(item: View) : RecyclerView.ViewHolder(item) {
-        val questionConstraintLayout: ConstraintLayout = item.findViewById(R.id.question_item_layout)
+//        val questionLinearLayout: LinearLayout = item.findViewById(R.id.question_item_layout)
+        val questionText: TextView = item.findViewById(R.id.textViewQuestDeclaration)
+        val answer_one: RadioButton = item.findViewById(R.id.radioButton_1)
+        val answer_two: RadioButton = item.findViewById(R.id.radioButton_2)
+        val answer_three: RadioButton = item.findViewById(R.id.radioButton_3)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionAdapter.MyQuestion {
@@ -30,15 +34,20 @@ class QuestionAdapter(val questions: List<Question>, val listener: QuestionAdapt
         val questionVariants = questions[position].variants
         val questionPoints = questions[position].points
 
-        holder.questionConstraintLayout.findViewById<TextView>(R.id.textViewQuestDeclaration).text = questionText
-        holder.questionConstraintLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
-            questionVariants[0]
-        holder.questionConstraintLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
-            questionVariants[1]
-        holder.questionConstraintLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
-            questionVariants[2]
-//        holder.questionConstraintLayout.findViewById<RadioButton>(R.id.radioButton_2).text =
-//        holder.questionConstraintLayout.findViewById<RadioButton>(R.id.radioButton_3).text =
+
+
+//        holder.questionLinearLayout.findViewById<TextView>(R.id.textViewQuestDeclaration).text = questionText
+//        holder.questionLinearLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
+//            questionVariants[0]
+//        holder.questionLinearLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
+//            questionVariants[1]
+//        holder.questionLinearLayout.findViewById<RadioButton>(R.id.radioButton_1).text =
+//            questionVariants[2]
+        holder.questionText.text = questionText
+        holder.answer_one.text = questionVariants[0]
+        holder.answer_two.text = questionVariants[1]
+        holder.answer_three.text = questionVariants[2]
+//        holder.questionText.text = questionText
 
     //        holder.itemView.setOnClickListener {
 //            listener.onItemClickListener(list[position])
