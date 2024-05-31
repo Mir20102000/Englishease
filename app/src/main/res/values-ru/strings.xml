@@ -59,4 +59,5 @@
     <string name="registration_failed_check_the_data_entered">Регистрация провалилась, проверьте данные</string>
     <string name="questions_must_be_at_least_5_and_no_more_than_20">Количество вопросов должно быть не менее 5 и не более 20</string>
     <string name="check_the_data_you_entered">Проверьте правильность введённых данных</string>
+    <string name="lesson_has_successfully_removed">Урок успешно удалён</string>
 </resources>

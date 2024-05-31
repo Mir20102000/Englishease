@@ -114,7 +114,11 @@
         android:id="@+id/selectedLessonFragment"
         android:name="com.example.englishease.presentation.fragments.SelectedLessonFragment"
         android:label="fragment_selected_lesson"
-        tools:layout="@layout/fragment_selected_lesson" />
+        tools:layout="@layout/fragment_selected_lesson" >
+        <action
+            android:id="@+id/action_selectedLessonFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newLessonFragment"
         android:name="com.example.englishease.presentation.fragments.NewLessonFragment"

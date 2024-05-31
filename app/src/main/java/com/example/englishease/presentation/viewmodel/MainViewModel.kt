@@ -9,6 +9,7 @@ import com.example.englishease.domain.models.Result
 import com.example.englishease.domain.models.User
 import com.example.englishease.domain.usecases.BeginTestUseCase
 import com.example.englishease.domain.usecases.ContinueTestUseCase
+import com.example.englishease.domain.usecases.DeleteLessonUseCase
 import com.example.englishease.domain.usecases.FinishTestUseCase
 import com.example.englishease.domain.usecases.GetCountQuestionUseCase
 import com.example.englishease.domain.usecases.ShowLessonDescUseCase
@@ -27,7 +28,8 @@ class MainViewModel (
     private val continueTestUseCase: ContinueTestUseCase,
     private val finishTestUseCase: FinishTestUseCase,
     private val getCountQuestionUseCase: GetCountQuestionUseCase,
-    private val showResultsUseCase: ShowResultsUseCase
+    private val showResultsUseCase: ShowResultsUseCase,
+    private val deleteLessonUseCase: DeleteLessonUseCase
     ) : ViewModel() {
 
     private val _userName = MutableLiveData<String>()
@@ -153,6 +155,12 @@ class MainViewModel (
     fun getResults(nameTest: String) {
         viewModelScope.launch {
             _results.value = showResultsUseCase.showResults(nameTest)
+        }
+    }
+
+    fun deleteLesson(lessonName: String) {
+        viewModelScope.launch {
+            deleteLessonUseCase.deleteLesson(lessonName)
         }
     }
 }

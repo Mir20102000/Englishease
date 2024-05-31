@@ -56,6 +56,10 @@ class MainViewModelFactory(private val application: Application): ViewModelProvi
         ShowResultsUseCase(domainRepository)
     }
 
+    private val deleteLessonUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        DeleteLessonUseCase(domainRepository)
+    }
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
 //            authorizationUseCase,
@@ -68,7 +72,8 @@ class MainViewModelFactory(private val application: Application): ViewModelProvi
             continueTestUseCase,
             finishTestUseCase,
             getCountQuestionUseCase,
-            showResultsUseCase
+            showResultsUseCase,
+            deleteLessonUseCase
         ) as T
     }
 }
