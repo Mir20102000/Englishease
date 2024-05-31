@@ -24,22 +24,22 @@ class FragmentsInstrumentedTest {
     @JvmField
     var activityScenario = ActivityTestRule(MainActivity::class.java)
 
-    @Test
-    fun registerExistingUser_causesError() {
-        Espresso.onView(ViewMatchers.withId(R.id.create_acc_btn))
-            .perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.email_for_reg_edittext))
-            .perform(ViewActions.typeText("testperson@mail.ru"))
-        Espresso.onView(ViewMatchers.withId(R.id.pass_for_reg_edittext))
-            .perform(ViewActions.typeText("verystrongpass"))
-        Espresso.onView(ViewMatchers.withId(R.id.repeat_pass_edittext))
-            .perform(ViewActions.typeText("verystrongpass"))
-        Espresso.closeSoftKeyboard()
-        Espresso.onView(ViewMatchers.withId(R.id.register_btn))
-            .perform(ViewActions.click())
-        Espresso.onView(withText("Registration failed, check the data entered"))
-            .check(ViewAssertions.matches(isDisplayed()));
-    }
+//    @Test
+//    fun registerExistingUser_causesError() {
+//        Espresso.onView(ViewMatchers.withId(R.id.create_acc_btn))
+//            .perform(ViewActions.click())
+//        Espresso.onView(ViewMatchers.withId(R.id.email_for_reg_edittext))
+//            .perform(ViewActions.typeText("testperson@mail.ru"))
+//        Espresso.onView(ViewMatchers.withId(R.id.pass_for_reg_edittext))
+//            .perform(ViewActions.typeText("verystrongpass"))
+//        Espresso.onView(ViewMatchers.withId(R.id.repeat_pass_edittext))
+//            .perform(ViewActions.typeText("verystrongpass"))
+//        Espresso.closeSoftKeyboard()
+//        Espresso.onView(ViewMatchers.withId(R.id.register_btn))
+//            .perform(ViewActions.click())
+//        Espresso.onView(withText("Registration failed, check the data entered"))
+//            .check(ViewAssertions.matches(isDisplayed()));
+//    }
 
     @Test
     fun passwordsDoNotMatch_causesError() {

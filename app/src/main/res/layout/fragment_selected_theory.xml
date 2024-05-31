@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".presentation.SelectedTheoryFragment">
+        tools:context=".presentation.fragments.SelectedTheoryFragment">
 
         <TextView
             android:id="@+id/textViewSubjectNameStart"
@@ -44,8 +44,8 @@
 
         <Button
             android:id="@+id/start_test_btn"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
             android:layout_marginTop="120dp"
             android:text="@string/start_test"
             android:backgroundTint="#e76f51"
@@ -57,8 +57,8 @@
 
         <Button
             android:id="@+id/buttonShowResultsStart"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:backgroundTint="#e76f51"

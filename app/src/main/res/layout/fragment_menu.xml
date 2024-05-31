@@ -6,7 +6,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
     android:orientation="vertical"
-    tools:context=".presentation.MenuFragment">
+    tools:context=".presentation.fragments.MenuFragment">
 
     <TextView
         android:id="@+id/hello_text_view"
@@ -18,7 +18,7 @@
         android:layout_gravity="top"
         android:gravity="center_horizontal"
         android:includeFontPadding="true"
-        android:text="Menu"
+        android:text="@string/menu"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -26,10 +26,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/toLessonsFragmentCardView"
-        android:layout_width="200dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="170dp"
         card_view:cardBackgroundColor="#E8DFDF"
         card_view:cardCornerRadius="30dp">
 
@@ -46,11 +46,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/toTestsFragmentCardView"
-        android:layout_width="200dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         card_view:cardBackgroundColor="#E8DFDF"
         card_view:cardCornerRadius="30dp">
 
@@ -62,6 +61,49 @@
             android:layout_gravity="center"
             android:padding="20dp"
             android:text="@string/tests"
+            android:textColor="#000000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toNewLessonFragmentCardView"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        card_view:cardBackgroundColor="#E8DFDF"
+        card_view:cardCornerRadius="30dp">
+
+        <TextView
+            android:id="@+id/newLessonTextView"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="14dp"
+            android:text="@string/new_lesson"
+            android:textColor="#000000" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toNewTestFragmentCardView"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        card_view:cardBackgroundColor="#E8DFDF"
+        card_view:cardCornerRadius="30dp">
+
+        <TextView
+            android:id="@+id/newTestTextView"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="14dp"
+            android:text="@string/new_test"
             android:textColor="#000000" />
     </androidx.cardview.widget.CardView>
 

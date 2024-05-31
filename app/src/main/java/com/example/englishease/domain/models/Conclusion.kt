@@ -1,8 +1,7 @@
 package com.example.englishease.domain.models
 
-data class Conclusion(
-    var testName: String,
-    var userName: String,
-    var points: Int,
-    var date: String
-        )
+data class Conclusion (
+    val min_border: Int,
+    val max_border: Int,
+    val text: String
+)

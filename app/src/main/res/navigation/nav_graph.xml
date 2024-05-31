@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/authorizationFragment"
-        android:name="com.example.englishease.presentation.AuthorizationFragment"
+        android:name="com.example.englishease.presentation.fragments.AuthorizationFragment"
         android:label="fragment_authorization"
         tools:layout="@layout/fragment_authorization" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.englishease.presentation.RegistrationFragment"
+        android:name="com.example.englishease.presentation.fragments.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/theoryFragment"
-        android:name="com.example.englishease.presentation.TheoryFragment"
+        android:name="com.example.englishease.presentation.fragments.TheoryFragment"
         android:label="fragment_theory"
         tools:layout="@layout/fragment_theory" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/selectedTheoryFragment"
-        android:name="com.example.englishease.presentation.SelectedTheoryFragment"
+        android:name="com.example.englishease.presentation.fragments.SelectedTheoryFragment"
         android:label="fragment_selected_theory"
         tools:layout="@layout/fragment_selected_theory" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/selectedTestFragment"
-        android:name="com.example.englishease.presentation.SelectedTestFragment"
+        android:name="com.example.englishease.presentation.fragments.SelectedTestFragment"
         android:label="fragment_selected_test"
         tools:layout="@layout/fragment_selected_test" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/selectedTestResultFragment"
-        android:name="com.example.englishease.presentation.SelectedTestResultFragment"
+        android:name="com.example.englishease.presentation.fragments.SelectedTestResultFragment"
         android:label="fragment_selected_test_result"
         tools:layout="@layout/fragment_selected_test_result" >
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.englishease.presentation.ResultFragment"
+        android:name="com.example.englishease.presentation.fragments.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/lessonsFragment"
-        android:name="com.example.englishease.presentation.LessonsFragment"
+        android:name="com.example.englishease.presentation.fragments.LessonsFragment"
         android:label="fragment_lessons"
         tools:layout="@layout/fragment_lessons" >
         <action
@@ -94,7 +94,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.englishease.presentation.MenuFragment"
+        android:name="com.example.englishease.presentation.fragments.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -103,10 +103,48 @@
         <action
             android:id="@+id/action_menuFragment_to_theoryFragment"
             app:destination="@id/theoryFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_newLessonFragment"
+            app:destination="@id/newLessonFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_newTestFragment"
+            app:destination="@id/newTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedLessonFragment"
-        android:name="com.example.englishease.presentation.SelectedLessonFragment"
+        android:name="com.example.englishease.presentation.fragments.SelectedLessonFragment"
         android:label="fragment_selected_lesson"
         tools:layout="@layout/fragment_selected_lesson" />
+    <fragment
+        android:id="@+id/newLessonFragment"
+        android:name="com.example.englishease.presentation.fragments.NewLessonFragment"
+        android:label="fragment_new_lesson"
+        tools:layout="@layout/fragment_new_lesson" >
+        <action
+            android:id="@+id/action_newLessonFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newQuestionFragment"
+        android:name="com.example.englishease.presentation.fragments.NewQuestionFragment"
+        android:label="fragment_new_question"
+        tools:layout="@layout/fragment_new_question" >
+        <action
+            android:id="@+id/action_newQuestionFragment_to_createResultFragment"
+            app:destination="@id/createResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTestFragment"
+        android:name="com.example.englishease.presentation.fragments.NewTestFragment"
+        android:label="fragment_new_test"
+        tools:layout="@layout/fragment_new_test" >
+        <action
+            android:id="@+id/action_newTestFragment_to_newQuestionFragment"
+            app:destination="@id/newQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createResultFragment"
+        android:name="com.example.englishease.presentation.fragments.CreateResultFragment"
+        android:label="fragment_create_result"
+        tools:layout="@layout/fragment_create_result" />
 </navigation>

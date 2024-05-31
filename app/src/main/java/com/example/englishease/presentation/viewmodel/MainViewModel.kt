@@ -5,13 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.englishease.domain.models.Question
+import com.example.englishease.domain.models.Result
 import com.example.englishease.domain.models.User
-import com.example.englishease.domain.usecases.AuthorizationUseCase
 import com.example.englishease.domain.usecases.BeginTestUseCase
 import com.example.englishease.domain.usecases.ContinueTestUseCase
 import com.example.englishease.domain.usecases.FinishTestUseCase
 import com.example.englishease.domain.usecases.GetCountQuestionUseCase
-import com.example.englishease.domain.usecases.RegistrationUseCase
 import com.example.englishease.domain.usecases.ShowLessonDescUseCase
 import com.example.englishease.domain.usecases.ShowResultsUseCase
 import com.example.englishease.domain.usecases.ShowTheoryListUseCase
@@ -76,8 +75,8 @@ class MainViewModel (
     private val _textResult = MutableLiveData<String>()
     var textResult: LiveData<String> = _textResult
 
-    private val _results = MutableLiveData<List<com.example.englishease.domain.models.Conclusion>>()
-    var results: LiveData<List<com.example.englishease.domain.models.Conclusion>> = _results
+    private val _results = MutableLiveData<List<Result>>()
+    var results: LiveData<List<Result>> = _results
 
     fun authorize(user: String) {
             _userName.value = user.substringBefore('@')

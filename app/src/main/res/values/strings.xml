@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Englishease</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">This is authorization fragment</string>
-    <string name="auth_to_register_btn">Already have an account?</string>
+    <string name="hello_blank_fragment" translatable="false">This is authorization fragment</string>
+    <string name="auth_to_register_btn">Don\'t have an account yet?</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="login">\t\tEmail</string>
     <string name="password">\t\tPassword</string>
@@ -14,21 +14,21 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="theory">Theory</string>
     <string name="tests">Tests</string>
-    <string name="test_name">theory_theme</string>
+    <string name="test_name" translatable="false">theory_theme</string>
     <string name="test_results">Test results</string>
-    <string name="selected_theory_text">Here is selected theory text: rules, examples, etc.</string>
+    <string name="selected_theory_text" translatable="false">Here is selected theory text: rules, examples, etc.</string>
     <string name="user">User</string>
     <string name="results">Results</string>
     <string name="date">Date</string>
-    <string name="progress">1/10</string>
-    <string name="questDeclaration">question declaration</string>
+    <string name="progress" translatable="false">1/10</string>
+    <string name="questDeclaration" translatable="false">question declaration</string>
     <string name="variant1">variant 1</string>
     <string name="variant2">variant 2</string>
     <string name="variant3">variant 3</string>
     <string name="variant4">variant 4</string>
     <string name="continueButton">continue</string>
     <string name="result_text">Results</string>
-    <string name="theory_name">Theory name</string>
+    <string name="theory_name" translatable="false">Theory name</string>
     <string name="lesson_name">Lesson name</string>
     <string name="lessons">Lessons</string>
     <string name="lesson_text">This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
@@ -46,5 +46,35 @@
     <string name="date_header">Date</string>
     <string name="log_in">Log in</string>
     <string name="profile">Profile</string>
+    <string name="loginHeader">Login</string>
+    <string name="registration">Registration</string>
+    <string name="finish">Finish</string>
+    <string name="menu">Menu</string>
+    <string name="name">Name</string>
+    <string name="description">description</string>
+    <string name="content">content</string>
+    <string name="new_lesson">New lesson</string>
+    <string name="save">Save</string>
+    <string name="new_test">New test</string>
+    <string name="question_count_edittext">Question count</string>
+    <string name="answer_one">Answer one</string>
+    <string name="question">Question</string>
+    <string name="answer_two">Answer two</string>
+    <string name="answer_three">Answer three</string>
+    <string name="correct_answer">Correct answer</string>
+    <string name="question_1">Question #1</string>
+    <string name="next">Next</string>
+    <string name="new_lesson_created">New lesson created</string>
+    <string name="new_question_created">New question created</string>
+    <string name="login_failed_check_the_data_entered">Login failed, check the data entered</string>
+    <string name="all_fields_must_be_filled">All fields must be filled</string>
+    <string name="login_successful">Login successful</string>
+    <string name="fill_out_all_input_fields">Fill out all input fields</string>
+    <string name="password_must_contain_at_least_6_characters">Password must contain at least 6 characters</string>
+    <string name="passwords_do_not_match_check_the_data_you_entered">Passwords do not match, check the data you entered</string>
+    <string name="user_successfully_signed_up">User %1$s successfully signed up</string>
+    <string name="registration_failed_check_the_data_entered">Registration failed, check the data entered</string>
+    <string name="questions_must_be_at_least_5_and_no_more_than_20">Questions must be at least 5 and no more than 20</string>
+    <string name="check_the_data_you_entered">Check the data you entered</string>
 
 </resources>

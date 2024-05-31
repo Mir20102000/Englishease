@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".presentation.AuthorizationFragment">
+    tools:context=".presentation.fragments.AuthorizationFragment">
 
     <TextView
         android:id="@+id/englisheaseTxt"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:textSize="28sp"
         android:textColor="#000000"
-        android:text="Login"
+        android:text="@string/loginHeader"
         app:layout_constraintBottom_toTopOf="@+id/login_edittext"
         app:layout_constraintTop_toBottomOf="@+id/englisheaseTxt"
         app:layout_constraintStart_toStartOf="@+id/login_edittext"

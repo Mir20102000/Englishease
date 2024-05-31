@@ -13,6 +13,8 @@ import com.example.englishease.data.models.Lesson
 @Dao
 interface AppDao {
 
+
+    // inserts
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTest(test: Test)
 
@@ -28,6 +30,8 @@ interface AppDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertResult(result: Result)
 
+
+    // selects
     @Query("SELECT content FROM lesson WHERE lesson.name == :testName LIMIT 1")
     suspend fun getTheoryText(testName: String): String
 
@@ -59,7 +63,21 @@ interface AppDao {
     @Query("SELECT text FROM text_result WHERE test_name == :testName AND min_border <= :points AND max_border >= :points LIMIT 1")
     suspend fun getResult(testName: String, points: Int): String
 
-//    @Query("SELECT * FROM question WHERE test_name == :testName")
-//    suspend fun getQuestions(testName: String)
+
+    // Delete queries for admin
+    @Query("DELETE FROM lesson WHERE name == :lessonName")
+    suspend fun deleteLesson(lessonName: String)
+
+    @Query("DELETE FROM test WHERE name == :testName")
+    suspend fun deleteTest(testName: String)
+
+    @Query("DELETE FROM question WHERE test_name == :testName")
+    suspend fun deleteQuestions(testName: String)
+
+    @Query("DELETE FROM result WHERE test_name == :testName")
+    suspend fun deleteResults(testName: String)
+
+    @Query("DELETE FROM text_result WHERE test_name == :testName")
+    suspend fun deleteTextResults(testName: String)
 
 }

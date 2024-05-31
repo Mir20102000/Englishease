@@ -1,4 +1,4 @@
-package com.example.englishease.presentation
+package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,13 +15,9 @@ import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 class SelectedTestResultFragment : Fragment() {
     private val vm: MainViewModel by activityViewModels { MainViewModelFactory(requireActivity().application) }
     private lateinit var binding: FragmentSelectedTestResultBinding
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +33,8 @@ class SelectedTestResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.testName.observe(viewLifecycleOwner) {
-            val test = "All results of \"$it\""
+//            val test = "All results of \"$it\""
+            val test = "$it"
             binding.textViewAllResults.text = test
             vm.getResults(it)
         }

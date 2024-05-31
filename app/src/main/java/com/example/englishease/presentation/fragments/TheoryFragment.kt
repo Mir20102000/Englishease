@@ -1,4 +1,4 @@
-package com.example.englishease.presentation
+package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

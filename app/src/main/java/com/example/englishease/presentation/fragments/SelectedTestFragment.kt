@@ -1,6 +1,7 @@
-package com.example.englishease.presentation
+package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,13 +36,19 @@ class SelectedTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vm.showQuestionsList(vm.testName.toString())
+        lateinit var listAdapter: QuestionAdapter
+        lateinit var state: IntArray
+//        var pointResult = 0
+        vm.testName.value?.let { vm.showQuestionsList(it) }
         binding.textViewSubjectNameQuest.text = vm.testName.value
         vm.questionList.observe(viewLifecycleOwner) {
-            val listAdapter = QuestionAdapter(it)
+            listAdapter = QuestionAdapter(it)
             binding.questionsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.questionsRecyclerView.adapter = listAdapter
+            state = listAdapter.state
         }
+
+//        val state = listAdapter.state
 
 
 //        vm.question.observe(viewLifecycleOwner) {
@@ -53,8 +60,17 @@ class SelectedTestFragment : Fragment() {
 //            binding.radioButton2.text = it.variants[1]
 //            binding.radioButton3.text = it.variants[2]
 //        }
-//        binding.buttonContinue.setOnClickListener {
-//            var pointResult = 0
+        binding.buttonContinue.setOnClickListener {
+            Log.d("points", state.joinToString())
+            var pointResult = 0
+            for (point in state) {
+                pointResult += point
+            }
+            vm.setPoints(pointResult)
+            Log.d("points", pointResult.toString())
+            findNavController().navigate(R.id.action_selectedTestFragment_to_resultFragment)
+
+
 //            if (binding.radioButton1.isChecked) {
 //                pointResult += vm.question.value?.points?.get(0) ?: 0
 //                binding.radioButton1.isChecked = false
@@ -78,6 +94,7 @@ class SelectedTestFragment : Fragment() {
 //                    it1,
 //                    (vm.question.value?.questionNumber?.plus(1) ?: 1)) }
 //            }
-//        }
+
+        }
     }
 }
