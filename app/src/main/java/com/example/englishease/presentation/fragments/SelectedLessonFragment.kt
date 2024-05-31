@@ -1,5 +1,6 @@
 package com.example.englishease.presentation.fragments
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -57,13 +58,36 @@ class SelectedLessonFragment : Fragment() {
         }
 
         binding.buttonDeleteLesson.setOnClickListener {
-            vm.testName.value?.let { it1 -> vm.deleteLesson(it1) }
-            Snackbar.make(
-                view,
-                getString(R.string.lesson_has_successfully_removed),
-                Snackbar.LENGTH_SHORT
-            ).show()
-            findNavController().navigate(R.id.action_selectedLessonFragment_to_lessonsFragment)
+            val title = "Подтвердите действие"
+            val message = "Вы пытаетесь удалить урок?"
+            val yesButtonString = "Да, верно"
+            val noButtonString = "Отмена"
+
+            val builder = AlertDialog.Builder(requireActivity())
+            builder.setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(yesButtonString) { _, _ ->
+                    vm.testName.value?.let { it1 -> vm.deleteLesson(it1) }
+                    Snackbar.make(
+                        view,
+                        getString(R.string.lesson_has_successfully_removed),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                    findNavController().navigate(R.id.action_selectedLessonFragment_to_lessonsFragment)
+                }
+                .setNegativeButton(noButtonString) {
+                        dialog, id ->  dialog.cancel()
+                }
+            builder.create().show()
+
+//            vm.testName.value?.let { it1 -> vm.deleteLesson(it1) }
+//            Snackbar.make(
+//                view,
+//                getString(R.string.lesson_has_successfully_removed),
+//                Snackbar.LENGTH_SHORT
+//            ).show()
+//            findNavController().navigate(R.id.action_selectedLessonFragment_to_lessonsFragment)
+
 //            val builder = AlertDialog.Builder(requireActivity())
 //            val inflater = layoutInflater
 //            val dialogLayout = inflater.inflate(R.layout.confirm_alert_dialog, null)
