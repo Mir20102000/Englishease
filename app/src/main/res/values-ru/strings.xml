@@ -65,4 +65,5 @@
     <string name="you_want_to_delete_test">Вы хотите удалить тест?</string>
     <string name="confirm">Подтвердить</string>
     <string name="cancel">Отмена</string>
+    <string name="back">Назад</string>
 </resources>

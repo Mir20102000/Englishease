@@ -1,5 +1,6 @@
 package com.example.englishease.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,6 +32,7 @@ class CreateTestViewModel(private val saveTestUseCase: SaveTestUseCase) : ViewMo
     fun saveTestTitle(testName: String, queCount: Int) {
         _testName.value = testName
         _queCount.value = queCount
+        Log.d("TTT", "_testName.value = " + _testName.value + " _queCount.value = " + _queCount.value)
     }
 
     fun resetCurNum() {
@@ -63,6 +65,9 @@ class CreateTestViewModel(private val saveTestUseCase: SaveTestUseCase) : ViewMo
             )
         }
         _questionList.value = list
+
+        Log.d("TTT", "From CreateTestViewModel:" +
+                "_questionList.value= " + _questionList.value)
     }
 
     fun saveTextResults(
@@ -81,20 +86,29 @@ class CreateTestViewModel(private val saveTestUseCase: SaveTestUseCase) : ViewMo
             )
         }
         _textResultList.value = list
+        Log.d("TTT", "From CreateTestViewModel saveTextResults:" +
+                " _textResultList.value = " + _textResultList.value)
     }
 
     fun saveTest() {
+        Log.d("TTT", "From CreateTestViewModel saveTest(): первая строка")
         viewModelScope.launch {
+            Log.d("TTT", "From CreateTestViewModel saveTest(): внутри viewModelScope")
             testName.value?.let {
-                declTest.value?.let { it1 ->
-                    queCount.value?.let { it2 ->
-                        questionList.value?.let { it3 ->
-                            textResultList.value?.let { it4 ->
-                                saveTestUseCase.saveTest(
-                                    it,
-                                    it1, it2, it3, it4
-                                )
-                            }
+                Log.d("TTT", "From CreateTestViewModel saveTest(): testName.value " + it)
+                queCount.value?.let { it2 ->
+                    Log.d("TTT", "From CreateTestViewModel saveTest(): queCount.value " + it2)
+                    questionList.value?.let { it3 ->
+                        Log.d("TTT", "From CreateTestViewModel saveTest(): questionList.value " + it3)
+                        textResultList.value?.let { it4 ->
+                            Log.d("TTT", "From CreateTestViewModel saveTest(): textResultList.value " + it4)
+                            saveTestUseCase.saveTest(it, it2, it3, it4)
+                            Log.d("TTT", "From CreateTestViewModel saveTest(): " +
+                                    "testName.value: " + it +
+                                    " queCount.value: " + it2 +
+                                    " questionList.value: " + it3 +
+                                    " textResultList.value: " + it4)
+
                         }
                     }
                 }

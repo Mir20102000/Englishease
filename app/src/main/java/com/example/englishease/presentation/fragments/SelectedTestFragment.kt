@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentSelectedTestBinding
 import com.example.englishease.presentation.adapter.QuestionAdapter
+import com.example.englishease.presentation.viewmodel.LoginViewModel
+import com.example.englishease.presentation.viewmodel.LoginViewModelFactory
 import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 
@@ -19,6 +21,7 @@ import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 class SelectedTestFragment : Fragment() {
     private val vm: MainViewModel by activityViewModels{ MainViewModelFactory(requireActivity().application) }
     private lateinit var binding: FragmentSelectedTestBinding
+    private val loginVM: LoginViewModel by activityViewModels { LoginViewModelFactory(requireActivity().application) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +71,13 @@ class SelectedTestFragment : Fragment() {
             }
             vm.setPoints(pointResult)
             Log.d("points", pointResult.toString())
+            vm.testName.value?.let { it1 ->
+                loginVM.userName.value?.let { it2 ->
+                    vm.pointsResult.value?.let { it4 ->
+                            vm.getResult(it1, it4, it2)
+                        }
+                }
+            }
             findNavController().navigate(R.id.action_selectedTestFragment_to_resultFragment)
 
 

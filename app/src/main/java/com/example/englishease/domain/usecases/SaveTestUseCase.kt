@@ -11,11 +11,10 @@ import com.example.englishease.domain.repository.DomainRepository
 class SaveTestUseCase(private val testRepository: DomainRepository) {
     suspend fun saveTest(
         testName: String,
-        declTest: String,
         queCount: Int,
         questionList: List<Question>,
         textResultList: List<Conclusion>
     ) {
-        testRepository.saveTest(testName, declTest, queCount, questionList, textResultList)
+        testRepository.saveTest(testName, queCount, questionList, textResultList)
     }
 }

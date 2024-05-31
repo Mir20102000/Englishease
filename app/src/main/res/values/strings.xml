@@ -82,5 +82,6 @@
     <string name="you_want_to_delete_test">You want to delete test?</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
 
 </resources>

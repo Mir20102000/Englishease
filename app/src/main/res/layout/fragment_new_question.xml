@@ -99,6 +99,7 @@
         />
 
     <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -110,41 +111,57 @@
             android:id="@+id/cor_que_1_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_margin="20dp"
-            android:text="1"/>
+            android:text="1"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/cor_que_2_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_margin="20dp"
-            android:text="2"/>
+            android:text="2"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/cor_que_3_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_margin="20dp"
-            android:text="3"/>
+            android:text="3"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
 
+    <Button
+        android:id="@+id/save_new_question_back_btn"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#e76f51"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_new_question_forward_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <Button
-        android:id="@+id/save_new_question_btn"
-        android:layout_width="200dp"
+        android:id="@+id/save_new_question_forward_btn"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_margin="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#e76f51"
         android:text="@string/next"
         android:textSize="17sp"
-        android:backgroundTint="#e76f51"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/save_new_question_back_btn"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
 
 

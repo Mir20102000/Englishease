@@ -1,6 +1,7 @@
 package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -59,6 +60,8 @@ class NewTestFragment : Fragment() {
                     return@setOnClickListener
                 }
                 createTestVM.saveTestTitle(testName, queCount.toInt())
+                Log.d("TTT", testName + " " + queCount.toInt())
+
             } catch (e: java.lang.NumberFormatException) {
                 Snackbar.make(
                     view,

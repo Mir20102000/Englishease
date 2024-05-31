@@ -153,5 +153,9 @@
         android:id="@+id/createResultFragment"
         android:name="com.example.englishease.presentation.fragments.CreateResultFragment"
         android:label="fragment_create_result"
-        tools:layout="@layout/fragment_create_result" />
+        tools:layout="@layout/fragment_create_result" >
+        <action
+            android:id="@+id/action_createResultFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>

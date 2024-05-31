@@ -99,7 +99,6 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
 
     override suspend fun saveTest(
         testName: String,
-        declTest: String,
         queCount: Int,
         questionList: List<Question>,
         textResultList: List<com.example.englishease.domain.models.Conclusion>

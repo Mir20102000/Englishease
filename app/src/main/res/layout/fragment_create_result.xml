@@ -58,20 +58,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextMaxBorder" />
 
-<!--    <Button-->
-<!--        android:id="@+id/buttonCreateResultBack"-->
-<!--        android:layout_width="175dp"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginBottom="30dp"-->
-<!--        android:backgroundTint="#1640D6"-->
-<!--        android:text="@string/backButton"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/buttonCreateResultToCatalog"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <Button
+        android:id="@+id/buttonCreateResultBack"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#1640D6"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCreateResultToCatalog"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonCreateResultToCatalog"
