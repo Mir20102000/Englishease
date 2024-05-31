@@ -60,4 +60,9 @@
     <string name="questions_must_be_at_least_5_and_no_more_than_20">Количество вопросов должно быть не менее 5 и не более 20</string>
     <string name="check_the_data_you_entered">Проверьте правильность введённых данных</string>
     <string name="lesson_has_successfully_removed">Урок успешно удалён</string>
+    <string name="test_has_successfully_removed">Тест успешно удалён</string>
+    <string name="confirm_action">Подтвердите действие</string>
+    <string name="you_want_to_delete_test">Вы хотите удалить тест?</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="cancel">Отмена</string>
 </resources>

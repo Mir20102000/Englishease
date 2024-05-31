@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_selectedTheoryFragment_to_selectedTestResultFragment"
             app:destination="@id/selectedTestResultFragment" />
+        <action
+            android:id="@+id/action_selectedTheoryFragment_to_theoryFragment"
+            app:destination="@id/theoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedTestFragment"
