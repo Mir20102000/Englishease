@@ -27,7 +27,7 @@
     <string name="lessons">Уроки</string>
     <string name="start_test">Начать тест</string>
     <string name="showAllTestResults">Показать все результаты</string>
-    <string name="toTestsListText">Назад к урокам</string>
+    <string name="toTestsListText">Назад к тестам</string>
     <string name="log_in">Авторизируйтесь</string>
     <string name="loginHeader">Авторизация</string>
     <string name="registration">Регистрация</string>
@@ -66,4 +66,9 @@
     <string name="confirm">Подтвердить</string>
     <string name="cancel">Отмена</string>
     <string name="back">Назад</string>
+    <string name="new_results">Новые результаты</string>
+    <string name="result">Результат</string>
+    <string name="max_border">До</string>
+    <string name="from_0_to">"В диапазоне от 0 до "</string>
+    <string name="borders_diapason">В диапазоне от  до:</string>
 </resources>

@@ -25,7 +25,7 @@ class ResultAdapter(val list: List<Result>) : RecyclerView.Adapter<ResultAdapter
 
     override fun onBindViewHolder(holder: MyResult, position: Int) {
         holder.tvUser.text = list[position].userName
-        holder.tvResult.text = list[position].points.toString()
+        holder.tvResult.text = "${list[position].points.toString()}"
         holder.tvDate.text = list[position].date
     }
 

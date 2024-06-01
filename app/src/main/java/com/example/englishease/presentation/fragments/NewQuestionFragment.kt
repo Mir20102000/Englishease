@@ -84,22 +84,30 @@ class NewQuestionFragment : Fragment() {
             val progressText = "Вопрос # ${it + 1}/${createTestVM.queCount.value}"
             binding.newTest.text = progressText
 
-//            with(binding) {
-//                newTest.text = progressText
-//                if (points[it] != 0) {
-//                    corQue1Rb.isChecked = true
-//                    corQue2Rb.isChecked = false
-//                    corQue3Rb.isChecked = false
-//                } else {
-//                    corQue1Rb.isChecked = false
-//                    corQue2Rb.isChecked = false
-//                    corQue3Rb.isChecked = false
-//                }
-//                answerOneEdittext.setText(answers[it])
-//                answerTwoEdittext.setText(answers2[it])
-//                answerThreeEdittext.setText(answers3[it])
-//                questionTextEdittext.setText(questions[it])
-//            }
+            with(binding) {
+                newTest.text = progressText
+                if (points[it] == 1) {
+                    corQue1Rb.isChecked = true
+                    corQue2Rb.isChecked = false
+                    corQue3Rb.isChecked = false
+                } else if (points2[it] == 1){
+                    corQue1Rb.isChecked = false
+                    corQue2Rb.isChecked = true
+                    corQue3Rb.isChecked = false
+                } else if (points3[it] == 1){
+                    corQue1Rb.isChecked = false
+                    corQue2Rb.isChecked = false
+                    corQue3Rb.isChecked = true
+                } else {
+                    corQue1Rb.isChecked = false
+                    corQue2Rb.isChecked = false
+                    corQue3Rb.isChecked = false
+                }
+                answerOneEdittext.setText(answers[it])
+                answerTwoEdittext.setText(answers2[it])
+                answerThreeEdittext.setText(answers3[it])
+                questionTextEdittext.setText(questions[it])
+            }
         }
 
 

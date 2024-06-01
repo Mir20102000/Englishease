@@ -1,7 +1,6 @@
 package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
-import com.example.englishease.databinding.FragmentCreateResultBinding
-import com.example.englishease.databinding.FragmentNewQuestionBinding
+import com.example.englishease.databinding.FragmentNewResultBinding
 import com.example.englishease.presentation.viewmodel.CreateTestViewModel
 import com.example.englishease.presentation.viewmodel.CreateTestViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 
-class CreateResultFragment : Fragment() {
-    private lateinit var binding: FragmentCreateResultBinding
+class NewResultFragment : Fragment() {
+    private lateinit var binding: FragmentNewResultBinding
     private var curNum = 0
     private val createTestVM: CreateTestViewModel by activityViewModels {
         CreateTestViewModelFactory(
@@ -37,7 +35,7 @@ class CreateResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCreateResultBinding.inflate(layoutInflater)
+        binding = FragmentNewResultBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -57,7 +55,7 @@ class CreateResultFragment : Fragment() {
                 binding.buttonCreateResultBack.visibility = View.GONE
             }
             with(binding) {
-                val borderText = "От ${borders[curNum]} до:"
+                val borderText = "В диапазоне от ${borders[curNum]} до:"
                 textViewMinBorder.text = borderText
                 if (borders[it + 1] != 0) {
                     editTextMaxBorder.setText(borders[it + 1].toString())

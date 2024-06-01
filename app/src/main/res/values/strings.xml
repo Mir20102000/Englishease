@@ -83,5 +83,9 @@
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
     <string name="back">Back</string>
+    <string name="new_results">New results</string>
+    <string name="result">Result</string>
+    <string name="max_border">Max border</string>
+    <string name="from_0_to">From 0 to</string>
 
 </resources>

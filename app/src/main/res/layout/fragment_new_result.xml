@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.CreateResultFragment">
+    tools:context=".presentation.fragments.NewResultFragment">
 
     <TextView
-        android:id="@+id/textViewCreateResult"
+        android:id="@+id/new_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Создание результата"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/new_results"
         android:textColor="#000000"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,50 +23,52 @@
         android:id="@+id/textViewMinBorder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="мин"
+        android:layout_marginTop="60dp"
+        android:text="@string/from_0_to"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextMaxBorder"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCreateResult" />
+        app:layout_constraintTop_toBottomOf="@+id/new_result_tv" />
+
 
     <EditText
         android:id="@+id/editTextMaxBorder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="макс"
-        android:minHeight="48dp"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:hint="@string/max_border"
+        android:background="#F1EBEB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewMinBorder"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCreateResult" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMinBorder" />
 
     <EditText
         android:id="@+id/editTextTextResult"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="текст результата"
-        android:minHeight="48dp"
+        android:inputType="text"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:hint="@string/result"
+        android:background="#F1EBEB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextMaxBorder" />
 
     <Button
         android:id="@+id/buttonCreateResultBack"
         android:layout_width="175dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#1640D6"
         android:text="@string/back"
         android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="17sp"
+        android:backgroundTint="#e76f51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonCreateResultToCatalog"
         app:layout_constraintHorizontal_bias="0.5"
@@ -75,15 +77,14 @@
     <Button
         android:id="@+id/buttonCreateResultToCatalog"
         android:layout_width="175dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#1640D6"
         android:text="@string/continueButton"
         android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="17sp"
+        android:backgroundTint="#e76f51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCreateResultBack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
