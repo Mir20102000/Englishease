@@ -87,5 +87,6 @@
     <string name="result">Result</string>
     <string name="max_border">Max border</string>
     <string name="from_0_to">From 0 to</string>
+    <string name="give_admin_permission">Admin permission</string>
 
 </resources>

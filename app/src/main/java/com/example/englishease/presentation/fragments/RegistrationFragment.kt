@@ -1,14 +1,18 @@
 package com.example.englishease.presentation.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.englishease.R
 import com.example.englishease.databinding.FragmentRegistrationBinding
+import com.example.englishease.presentation.viewmodel.LoginViewModel
+import com.example.englishease.presentation.viewmodel.LoginViewModelFactory
 import com.example.englishease.presentation.viewmodel.MainViewModel
 import com.example.englishease.presentation.viewmodel.MainViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +23,8 @@ class RegistrationFragment : Fragment() {
     private val vm: MainViewModel by activityViewModels { MainViewModelFactory(requireActivity().application) }
     private lateinit var binding: FragmentRegistrationBinding
     private var auth = FirebaseAuth.getInstance()
+    private val loginVM: LoginViewModel by activityViewModels { LoginViewModelFactory(requireActivity().application) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,47 @@ class RegistrationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        binding.adminCheckbox.setOnClickListener {
+            val isAdminCheck = "icandoit422"
+            val title = "Подтвердите права"
+            val message = "Введите проверочное слово"
+            val yesButtonString = "Подтвердить"
+            val noButtonString = "Отмена"
+            val builder = AlertDialog.Builder(requireActivity())
+            val edittext = EditText(requireActivity());
+            edittext.setHint("Слово")
+            builder.setTitle(title)
+                .setMessage(message)
+                .setView(edittext)
+                .setPositiveButton(yesButtonString) { _, _ ->
+                    val result = edittext.text.toString()
+                    if (result == isAdminCheck) {
+                        loginVM.setRole(true)
+                        Snackbar.make(
+                            view,
+                            "Права админа подтверждены",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        loginVM.setRole(false)
+                        binding.adminCheckbox.isChecked = false
+                        Snackbar.make(
+                            view,
+                            "Проверочное слово неверное",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+
+
+                }
+                .setNegativeButton(noButtonString) { dialog, id ->
+                    binding.adminCheckbox.isChecked = false
+                    dialog.cancel()
+                }
+            builder.create().show()
+        }
+
         binding.registerBtn.setOnClickListener {
             binding.registerProgressBar.visibility = View.VISIBLE
             val email = binding.emailForRegEdittext.text.toString()

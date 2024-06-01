@@ -14,6 +14,9 @@ class LoginViewModel : ViewModel() {
     private val _superRole = MutableLiveData<Boolean>()
     val superRole: LiveData<Boolean> = _superRole
 
+    private val _isChecked = MutableLiveData<Boolean>()
+    val isChecked: LiveData<Boolean> = _isChecked
+
     fun login(user: String) {
         _userName.value = user.substringBefore('@')
     }
@@ -24,5 +27,9 @@ class LoginViewModel : ViewModel() {
 
     fun setRole(superRole: Boolean) {
         _superRole.value = superRole
+    }
+
+    fun setChecked(isChecked: Boolean) {
+        _isChecked.value = isChecked
     }
 }

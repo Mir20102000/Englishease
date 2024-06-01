@@ -74,7 +74,7 @@ class AuthorizationFragment : Fragment() {
 //                        vm.authorize(email)
 
                         loginVM.login(email)
-                        loginVM.setRole(loginVM.userName.value == "mirziyod")
+//                        loginVM.setRole(loginVM.userName.value == "mirziyod")
                         if (loginVM.superRole.value == true) {
                             loginVM.password(password)
                         }
