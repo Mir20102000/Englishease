@@ -77,6 +77,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:text="Удалить тест"
+            android:visibility="gone"
             android:textAllCaps="false"
             android:textSize="17sp"
             android:backgroundTint="#e76f51"

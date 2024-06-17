@@ -112,6 +112,9 @@
         <action
             android:id="@+id/action_menuFragment_to_newTestFragment"
             app:destination="@id/newTestFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectedLessonFragment"

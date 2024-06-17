@@ -36,6 +36,7 @@
     This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
     This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.
     This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.This is theory text.</string>
+    <string name="lesson_desc_text">This is description text.This is description text.</string>
     <string name="start_test">Start test</string>
     <string name="showAllTestResults">Show all test results</string>
     <string name="tvResultText">Результат</string>
@@ -88,5 +89,6 @@
     <string name="max_border">Max border</string>
     <string name="from_0_to">From 0 to</string>
     <string name="give_admin_permission">Admin permission</string>
+    <string name="exit">Exit</string>
 
 </resources>

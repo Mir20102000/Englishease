@@ -10,24 +10,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.SelectedLessonFragment">
 
-<!--    <TextView-->
-<!--        android:id="@+id/hello_text_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="#ED8C3E"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:includeFontPadding="true"-->
-<!--        android:lineSpacingMultiplier="0.5"-->
-<!--        android:paddingTop="8dp"-->
-<!--        android:paddingBottom="8dp"-->
-<!--        android:text="@string/lessons"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,7 +29,7 @@
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <com.example.englishease.presentation.TextViewEx
                 android:id="@+id/theory_text_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +38,7 @@
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:fontFamily="serif"
-                android:gravity="fill_horizontal"
+                android:textAlignment="textStart"
                 android:text="@string/lesson_text"
                 android:textColor="#264653"
                 android:textSize="18sp" />
@@ -66,6 +48,7 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="#e76f51"
                 android:text="Удалить урок"

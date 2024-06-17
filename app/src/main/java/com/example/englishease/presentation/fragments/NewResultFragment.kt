@@ -112,8 +112,8 @@ class NewResultFragment : Fragment() {
                 return@setOnClickListener
             }
             textResults[curNum] = textResult
-            if (borders[curNum + 1] == 8) {
-                borders[curNum + 1] = 9
+            if (borders[curNum + 1] == 5) {
+                borders[curNum + 1] = 6
                 createTestVM.saveTextResults(textResults, borders)
                 createTestVM.saveTest()
                 Snackbar.make(

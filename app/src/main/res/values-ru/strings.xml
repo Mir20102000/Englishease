@@ -71,5 +71,6 @@
     <string name="max_border">До</string>
     <string name="from_0_to">"В диапазоне от 0 до "</string>
     <string name="give_admin_permission">Права администратора</string>
+    <string name="exit">Выход</string>
     <string name="borders_diapason">В диапазоне от  до:</string>
 </resources>

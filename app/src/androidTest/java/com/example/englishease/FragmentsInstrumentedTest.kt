@@ -43,18 +43,18 @@ class FragmentsInstrumentedTest {
 
     @Test
     fun passwordsDoNotMatch_causesError() {
-        Espresso.onView(ViewMatchers.withId(R.id.create_acc_btn))
+        Espresso.onView(withId(R.id.create_acc_btn))
             .perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.email_for_reg_edittext))
+        Espresso.onView(withId(R.id.email_for_reg_edittext))
             .perform(ViewActions.typeText("testperson@mail.ru"))
-        Espresso.onView(ViewMatchers.withId(R.id.pass_for_reg_edittext))
+        Espresso.onView(withId(R.id.pass_for_reg_edittext))
             .perform(ViewActions.typeText("verystrong"))
-        Espresso.onView(ViewMatchers.withId(R.id.repeat_pass_edittext))
+        Espresso.onView(withId(R.id.repeat_pass_edittext))
             .perform(ViewActions.typeText("strongpass"))
         Espresso.closeSoftKeyboard()
-        Espresso.onView(ViewMatchers.withId(R.id.register_btn))
+        Espresso.onView(withId(R.id.register_btn))
             .perform(ViewActions.click())
-        Espresso.onView(withText("Passwords do not match, check the data you entered"))
+        Espresso.onView(withText("Пароли не совпадают"))
             .check(ViewAssertions.matches(isDisplayed()));
     }
 
@@ -71,7 +71,7 @@ class FragmentsInstrumentedTest {
         Espresso.closeSoftKeyboard()
         Espresso.onView(withId(R.id.register_btn))
             .perform(ViewActions.click())
-        Espresso.onView(withText("Password must contain at least 6 characters"))
+        Espresso.onView(withText("Пароль должен содержать не менее 6 символов"))
             .check(ViewAssertions.matches(isDisplayed()));
     }
 

@@ -150,59 +150,55 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Adjectives and prepositions",
-                    description = "Do you know how to use adjectives with prepositions like interested in or similar to?",
-                    content = "\t\tSome adjectives go with certain prepositions. There are no grammatical " +
-                            "rules for which preposition is used with which adjective, so it\'s a good idea to try to " +
-                            "learn them together. To help you do this, write new vocabulary in your notebook in a " +
-                            "sentence or phrase.\n" +
-                            "\t\tHowever, there are some patterns that can help you. Let\'s look at them first. " +
-                            "Remember that a preposition is followed by a noun or a gerund (-ing form).\n" +
-                            "\n\n\t\t\t\tWith at\n\n" +
-                            "\t\tWe use at with adjectives like good/bad/amazing/brilliant/terrible, etc. to talk about " +
-                            "skills and abilities.\n\n" +
-                            "He\'s really good at English.\n\n" +
-                            "She\'s amazing at the piano.\n\n" +
-                            "They\'re terrible at organising anything.\n\n" +
-                            "I\'m not very good at drawing.\n" +
-                            "\n\n\t\t\t\tWith about\n" +
-                            "\n\t\tWe often use about with adjectives of feelings like angry/excited/happy/nervous/sad/" +
-                            "stressed/worried,etc. to explain what is causing that feeling.\n\n" +
-                            "I\'m angry about the decision.\n\n" +
-                            "He\'s nervous about the presentation.\n\n" +
-                            "She\'s excited about the new job.\n\n" +
-                            "They were worried about the exam.\n\n" +
-                            "\n\n\t\t\t\tWith of\n" +
-                            "\n\t\tHowever, sometimes we use of with feelings.\n\n" +
-                            "She was afraid of telling her mum.\n\n" +
-                            "I\'m frightened of having an accident.\n\n" +
-                            "He\'s scared of flying.\n\n" +
-                            "You should be proud of your progress.\n\n" +
-                            "\n\n\t\t\t\tWith to\n" +
-                            "\n\t\tWe can use to to show the connection between people or things.\n\n" +
-                            "He\'s married to the director.\n\n" +
-                            "I\'m addicted to my phone.\n\n" +
-                            "I\'m allergic to nuts. It\'s similar to the old one.\n\n" +
-                            "\n\t\tWe can also use to to talk about someone\'s behaviour towards someone else.\n" +
-                            "\nThey were really friendly to me.\n\n" +
-                            "Was he nice to you?\n\n" +
-                            "He is always polite to everyone.\n\n" +
-                            "She was very rude to the waitress.\n\n" +
-                            "\n\n\t\tHere are some other useful adjectives with prepositions.\n" +
-                            "\n\n\t\t\t\tWith for\n" +
-                            "\nExercise is good for you.\n\n" +
-                            "Stress is bad for you.\n\n" +
-                            "The town is famous for its cheese.\n\n" +
-                            "I\'m responsible for the financial side of the business.\n\n" +
-                            "\n\t\t\t\tWith in\n" +
-                            "She\'s interested in the project.\n\n" +
-                            "They want someone who\'s experienced in design.\n\n" +
-                            "I didn\'t want to get involved in the argument."
+                    description = "Использование прилагательных с предлогами типа «interested in» или «similar to»",
+                    content = "Некоторые прилагательные сочетаются с определенными предлогами. Грамматических правил о том, " +
+                            "какой предлог используется с каким прилагательным, не существует, поэтому лучше всего стараться учить их вместе.\n\n" +
+                            "Однако есть несколько шаблонов, которые могут вам помочь. Давайте сначала рассмотрим их. Помните, что за предлогом " +
+                            "следует существительное или герундий (форма на -ing).\n\n\n\n" +
+                            "\t\t\t\tWith at\n\n" +
+                            "Мы используем at с такими прилагательными, как good/bad/amazing/brilliant/terrible и т.д., чтобы говорить о навыках и способностях.\n\n" +
+                            "1. He\'s really good at English.\n\n" +
+                            "2. She\'s amazing at the piano.\n\n" +
+                            "3. They\'re terrible at organising anything.\n\n" +
+                            "4. I\'m not very good at drawing.\n\n\n\n" +
+                            "\t\t\t\tWith about\n" +
+                            "\nМы часто используем about с прилагательными, обозначающими такие чувства, как angry/excited/happy/nervous/sad/stressed/worried и т. д., чтобы объяснить, чем вызвано это чувство.\n\n" +
+                            "1. I\'m angry about the decision.\n\n" +
+                            "2. He\'s nervous about the presentation.\n\n" +
+                            "3. She\'s excited about the new job.\n\n" +
+                            "4. They were worried about the exam.\n\n\n\n" +
+                            "\t\t\t\tWith of\n" +
+                            "\nОднако иногда мы используем «of» с чувствами.\n\n" +
+                            "1. She was afraid of telling her mum.\n\n" +
+                            "2. I\'m frightened of having an accident.\n\n" +
+                            "3. He\'s scared of flying.\n\n" +
+                            "4. You should be proud of your progress.\n\n\n\n" +
+                            "\t\t\t\tWith to\n" +
+                            "\nМы можем использовать «to», чтобы показать связь между людьми или вещами.\n\n" +
+                            "1. He\'s married to the director.\n\n" +
+                            "2. I\'m addicted to my phone.\n\n" +
+                            "3. I\'m allergic to nuts. It\'s similar to the old one.\n\n" +
+                            "\nМы также можем использовать «to», чтобы говорить о чьем-то поведении по отношению к кому-то другому.\n" +
+                            "\n1. They were really friendly to me.\n\n" +
+                            "2. Was he nice to you?\n\n" +
+                            "3. He is always polite to everyone.\n\n" +
+                            "4. She was very rude to the waitress.\n\n" +
+                            "\nВот еще несколько полезных прилагательных с предлогами.\n\n\n\n" +
+                            "\t\t\t\tWith for\n" +
+                            "\n1. Exercise is good for you.\n\n" +
+                            "2. Stress is bad for you.\n\n" +
+                            "3. The town is famous for its cheese.\n\n" +
+                            "4. I\'m responsible for the financial side of the business.\n\n\n\n" +
+                            "\t\t\t\tWith in\n\n" +
+                            "1. She\'s interested in the project.\n\n" +
+                            "2. They want someone who\'s experienced in design.\n\n" +
+                            "3. I didn\'t want to get involved in the argument."
                 )
             )
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Adjectives ending in '-ed' and '-ing'",
-                    description = "Do you know the difference between bored and boring?",
+                    description = "Разница между окончаниями '-ed' и '-ing' и когда их использовать",
                     content = "\t\tAdjectives that end in -ed (e.g. bored, interested) and adjectives that end in -ing (e.g." +
                             "boring, interesting) are often confused.\n\n\n\t\t" +
                             "-ed adjectives\n\n\t\t" +
@@ -231,7 +227,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Articles: 'a', 'an', 'the'",
-                    description = "Do you know how to use a, an and the?",
+                    description = "Использование артиклей «a», «an» и «the»?",
                     content = "\t\tSingular, countable nouns always have an article – a/an or the (or another determiner – my, your, this, that, etc.).\n" +
                             "\nWe use a/an – the indefinite article – when we talk about something for the first time, or something that is part of a group or type.\n" +
                             "\n\n\nI saw a good film yesterday.\n" +
@@ -260,7 +256,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Articles: 'the' or no article",
-                    description = "Do you know when you need to use the in common phrases and place names?",
+                    description = "Когда нужно использовать артикль «the» в общих фразах и географических названиях",
                     content = "We don\'t usually use an article in expressions with bed, work and home.\n" +
                             "\n\n\ngo to bed / be in bed\n" +
                             "\ngo to work / be at work / start work / finish work\n" +
@@ -302,50 +298,49 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Comparative adjectives",
-                    description = "Do you know when you need to use the in common phrases and place names?",
-                    content = "We use comparative adjectives to compare two things or show change. The comparative form depends on the number of syllables in the adjective.\n" +
-                            "\n\n\nAdjectives with one syllable\n" +
-                            "\n\n\nTo make comparative forms with one-syllable adjectives, we usually add -er:\n" +
-                            "\n\n\nold → older\n" +
-                            "\nclean → cleaner\n" +
-                            "\nslow → slower\n" +
+                    description = "Как использовать сравнительные прилагательные, такие как «older», «better» и «more interesting»",
+                    content = "Мы используем сравнительные прилагательные, чтобы сравнить два предмета или показать изменения. Форма " +
+                            "сравнительной степени зависит от количества слогов в прилагательном.\n" +
+                            "\n\n\nПрилагательные с одним слогом\n" +
+                            "\n\nЧтобы образовать сравнительные формы с односложными прилагательными, мы обычно добавляем -er:\n" +
+                            "\n\n1. old → older\n" +
+                            "\n2. clean → cleaner\n" +
+                            "\n3. slow → slower\n" +
+                            "\n\nЕсли прилагательное оканчивается на -e, мы добавляем -r:\n" +
+                            "\n\n1. safe → safer\n" +
+                            "\n2. nice → nicer\n" +
+                            "\n\n\nЕсли прилагательное оканчивается на гласную и согласную, мы обычно удваиваем согласную:\n" +
+                            "\n\n\n1. big → bigger\n" +
+                            "\n2. hot → hotter\n" +
                             "\n" +
-                            "\n\nIf an adjective ends in -e, we add -r:\n" +
-                            "\n\n\nsafe → safer\n" +
-                            "\nnice → nicer\n" +
-                            "\n\n\nIf an adjective ends in a vowel and a consonant, we usually double the consonant:\n" +
-                            "\n\n\nbig → bigger\n" +
-                            "\nhot → hotter\n" +
-                            "\n" +
-                            "\n\nAdjectives with two or more syllables\n" +
-                            "\n\n\nIf a two-syllable adjective ends in a consonant and -y, we change -y to -i and add -er:\n" +
-                            "\n\n\nnoisy → noisier\n" +
-                            "\nhappy → happier\n" +
-                            "\neasy → easier\n" +
-                            "\n\n\nWe use more to make comparative forms for most other two-syllable adjectives and for all\n" +
-                            "adjectives with three or more syllables:\n" +
-                            "\n\n\ncrowded → more crowded\n" +
-                            "\nstressful → more stressful\n" +
-                            "\ndangerous → more dangerous\n" +
-                            "\n\n\nException: You can either add -er/-r or use more with some two-syllable adjectives, such as common, cruel, gentle, handsome, likely, narrow, pleasant, polite, simple and stupid.\n" +
-                            "\n\n\nI think life in the countryside is simpler than in the city.\n" +
-                            "\nIt\'s more simple to live in the city because everything you need is there.\n" +
-                            "\n\n\nIrregular adjectives\n" +
-                            "\n\n\nThe adjectives good, bad and far have irregular comparative forms:\n" +
-                            "\n\n\ngood → better\n" +
-                            "\nbad → worse\n" +
-                            "\nfar → further/farther\n" +
+                            "\n\nПрилагательные с двумя и более слогами\n" +
+                            "\n\nЕсли двухсложное прилагательное оканчивается на согласную и -y, мы меняем -y на -i и добавляем -er:\n" +
+                            "\n\n1. noisy → noisier\n" +
+                            "\n2. happy → happier\n" +
+                            "\n3. easy → easier\n" +
+                            "\n\n\nМы используем more для образования сравнительных форм большинства других двухсложных прилагательных и всех прилагательных с тремя и более слогами:\n\n" +
+                            "\n1. crowded → more crowded\n" +
+                            "\n2. stressful → more stressful\n" +
+                            "\n3. dangerous → more dangerous\n" +
+                            "\n\n\nИсключение: Вы можете добавить -er/-r или использовать more с некоторыми двухсложными прилагательными, такими как common, cruel, gentle, handsome, likely, narrow, pleasant, polite, simple и stupid.\n" +
+                            "\n\n1. I think life in the countryside is simpler than in the city.\n" +
+                            "\n2. It\'s more simple to live in the city because everything you need is there.\n" +
+                            "\n\n\nНеправильные прилагательные\n" +
+                            "\n\nПрилагательные good, bad и far имеют неправильные сравнительные формы:\n" +
+                            "\n\n1. good → better\n" +
+                            "\n2. bad → worse\n" +
+                            "\n3. far → further/farther\n" +
                             "\n\n\nThan\n" +
-                            "\n\n\nWhen we want to say which person or thing we are comparing with, we can use than:\n" +
-                            "\n\n\nTheir house is cleaner than ours.\n" +
-                            "\nTraffic is slower in the city than in the countryside.\n" +
-                            "\nAfter the race I was more tired than Anne."
+                            "\n\nКогда мы хотим сказать, с каким человеком или вещью мы сравниваем, мы можем использовать than:\n" +
+                            "\n\n1. Their house is cleaner than ours.\n" +
+                            "\n2. Traffic is slower in the city than in the countryside.\n" +
+                            "\n3. After the race I was more tired than Anne."
                 )
             )
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Infinitive of purpose",
-                    description = "Do you know how and when to use an infinitive to talk about purpose?",
+                    description = "Как и когда использовать инфинитив, чтобы сказать о цели",
                     content = "When we want to answer the question why?, we can use an infinitive of purpose. Most of the time, we use the to-infinitive.\n" +
                             "\n\n\nWhy do you have the LearnEnglish Grammar app?\n" +
                             "\nTo improve my grammar.\n" +
@@ -360,7 +355,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Nouns: countable and uncountable",
-                    description = "Do you know how to use a, some, any, much and many?",
+                    description = "Как использовать 'a', 'some', 'any', 'much' и 'many'?",
                     content = "Nouns can be countable or uncountable. Countable nouns can be counted, e.g. an apple, two apples, three apples, etc. " +
                             "Uncountable nouns cannot be counted, e.g. air, rice, water, etc. " +
                             "When you learn a new noun, you should check if it is countable or uncountable and note how " +
@@ -410,7 +405,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Past continuous and past simple",
-                    description = "Do you know how to use the past continuous and past simple?",
+                    description = "Разница между временами 'past continuous' и 'past simple'",
                     content = "The past continuous and the past simple help us to show how two past actions or situations are connected.\n" +
                             "\n\n\nPast simple\n" +
                             "\n\n\nThe past simple shows us that an action was in the past, not in the present. Regulal " +
@@ -455,7 +450,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Possessive 's",
-                    description = "Do you know how to use possessive \\'s?",
+                    description = "Использование притяжательного \'s в конце существительного",
                     content = "We can use possessive \'s to talk about the relationship between people or to say who owns " +
                             "something. Possessive \'s always comes after a noun or a name.\n" +
                             "\n\n\nWe often use possessive \'s or s\' when we talk about family and friends.\n" +
@@ -498,7 +493,7 @@ class DomainRepositoryImpl(private val application: Application) : DomainReposit
             db.appDao().insertLesson(
                 com.example.englishease.data.models.Lesson(
                     name = "Prepositions of place – 'in', 'on', 'at'",
-                    description = "Do you know how to use in, on and at to talk about location?",
+                    description = "Как правильно говорить о месте с помощью предлогов 'in', 'on' и 'at'",
                     content = "We can use the prepositions in, on and at to say where things are. They go before nouns.\n" +
                             "\n\n\nI am in the kitchen.\n" +
                             "\nMy dog likes sleeping on the sofa.\n" +

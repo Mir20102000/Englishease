@@ -71,7 +71,7 @@ class NewTestFragment : Fragment() {
                 return@setOnClickListener
             }
             findNavController().navigate(R.id.action_newTestFragment_to_newQuestionFragment)
-            Snackbar.make(view, getString(R.string.new_question_created), Snackbar.LENGTH_SHORT).show()
+//            Snackbar.make(view, getString(R.string.new_question_created), Snackbar.LENGTH_SHORT).show()
         }
     }
 }

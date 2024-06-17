@@ -9,8 +9,8 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    card_view:cardBackgroundColor="#E8DFDF"
-    card_view:cardCornerRadius="30dp">
+    app:cardBackgroundColor="#E8DFDF"
+    app:cardCornerRadius="30dp">
 
     <TextView
         android:id="@+id/theory_item_text_view"

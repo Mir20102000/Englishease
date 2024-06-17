@@ -56,5 +56,8 @@ class MenuFragment : Fragment() {
         binding.toNewTestFragmentCardView.setOnClickListener() {
             findNavController().navigate(R.id.action_menuFragment_to_newTestFragment)
         }
+        binding.toAuthFragmentBtn.setOnClickListener() {
+            findNavController().navigate(R.id.action_menuFragment_to_authorizationFragment)
+        }
     }
 }

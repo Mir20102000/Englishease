@@ -3,6 +3,7 @@ package com.example.englishease.presentation.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,6 @@ class LessonAdapter(val list: List<String>, val lessonDescs: List<String>, val l
     RecyclerView.Adapter<LessonAdapter.MyLesson>(){
 
         class MyLesson(item: View) : RecyclerView.ViewHolder(item) {
-//            val textView: TextView = item.findViewById(R.id.lesson_item_title)
             val cardView: CardView = item.findViewById(R.id.lesson_card)
         }
 
@@ -22,11 +22,9 @@ class LessonAdapter(val list: List<String>, val lessonDescs: List<String>, val l
     }
 
     override fun onBindViewHolder(holder: LessonAdapter.MyLesson, position: Int) {
-        val text = list[position]
         val lessonName = list[position]
         val lessonDescs = lessonDescs[position]
-//        holder.textView.text = text
-        holder.cardView.findViewById<TextView>(R.id.lesson_item_title).text = text
+        holder.cardView.findViewById<TextView>(R.id.lesson_item_title).text = lessonName
         holder.cardView.findViewById<TextView>(R.id.lesson_item_desc).text = lessonDescs
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(list[position])
